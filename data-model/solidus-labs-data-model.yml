@@ -1,0 +1,243 @@
+generated: '2026-08-05'
+method: derived
+source:
+- openapi/*.yml (provider-published response examples)
+- https://tokensniffer.readme.io/reference/response
+- skills/references/response-fields.md (provider-published)
+note: The provider-published OpenAPI fragments carry response EXAMPLES rather than components.schemas — there is no
+  reusable schema layer to walk. This entity graph is derived from those examples plus the provider’s own Response
+  Data reference and the response-fields.md file shipped in its Agent Skill. No field was invented.
+schema_reuse:
+  components_schemas: 0
+  note: Zero named schemas across all five documents; every payload is inlined per operation. A consumer cannot $ref
+    a Token or a Pool.
+identifiers:
+  composite_key: A token is identified by the PAIR (chain_id, address) — address alone is not unique across chains.
+  chain_id: integer from get-supported-networks
+  address: lowercase hex contract address (base58 on Solana)
+  subscription_id: string, webhook subscription identifier
+entities:
+- name: Chain
+  operation: get-supported-networks
+  fields:
+  - id
+  - name
+  - alias
+  note: The root vocabulary; 15 chains at probe time.
+- name: Token
+  operation: get-token-results
+  fields:
+  - message
+  - status
+  - chain_id
+  - address
+  - name
+  - symbol
+  - total_supply
+  - decimals
+  - created_at
+  - deployer_address
+  - is_flagged
+  - exploits[]
+  - score
+  conditional_blocks:
+    include_metrics:
+    - contract
+    - permissions
+    - swap_simulation
+    - balances
+    - pools
+    include_tests:
+    - tests
+    include_similar:
+    - similar
+- name: Contract
+  parent: Token
+  always_present: true
+  fields:
+  - is_source_verified
+  - has_mint
+  - has_fee_modifier
+  - has_max_transaction_amount
+  - has_blocklist
+  - has_proxy
+  - has_pausable
+- name: Permissions
+  parent: Token
+  requires: include_metrics
+  fields:
+  - owner_address
+  - is_ownership_renounced
+- name: SwapSimulation
+  parent: Token
+  requires: include_metrics
+  fields:
+  - is_sellable
+  - buy_fee
+  - sell_fee
+- name: Balances
+  parent: Token
+  requires: include_metrics
+  fields:
+  - burn_balance
+  - lock_balance
+  - deployer_balance
+  - owner_balance
+  - top_holders[]
+- name: Holder
+  parent: Balances
+  fields:
+  - address
+  - balance
+  - is_contract
+- name: Pool
+  parent: Token
+  requires: include_metrics
+  fields:
+  - address
+  - name
+  - base_address
+  - base_symbol
+  - total_supply
+  - decimals
+  - base_reserve
+  - owner_balance
+  - deployer_balance
+  - burn_balance
+  - lock_balance
+  - locks[]
+  - top_holders[]
+- name: Lock
+  parent: Pool
+  fields:
+  - address
+  - name
+  - balance
+  - start_time
+  - end_time
+- name: SmellTest
+  parent: Token
+  requires: include_tests
+  fields:
+  - id
+  - description
+  - result
+  - value
+  note: One row per test, e.g. testForInadeqateLiquidityLockedOrBurned (provider spelling).
+- name: Exploit
+  parent: Token
+  fields:
+  - id
+  - name
+  - types[]
+  vocabulary: vocabulary/solidus-labs-exploit-types.yml
+- name: Pair
+  operation: getting-started-with-your-api
+  fields:
+  - chain_id
+  - pool address
+  - token addresses
+  - created timestamp
+  note: Trading-pair / liquidity-pool records from the /api/v2/pairs feeds.
+- name: Address
+  operation: get-address-results
+  fields:
+  - address
+  - chain_id
+  - scam tokens deployed by this address
+  note: A deployer-address view; the inverse index of Token.deployer_address.
+- name: WebhookSubscription
+  operation: create-webhook
+  fields:
+  - subscription_id
+  - callback_url
+  - event_types[]
+  - secret
+  note: secret is caller-supplied and used for SHA-256 HMAC signing; it is write-only in practice.
+- name: Event
+  parent: WebhookSubscription
+  fields:
+  - id
+  - type
+  - timestamp
+  - data
+  vocabulary: vocabulary/solidus-labs-exploit-types.yml#event_types
+- name: Usage
+  operation: get-usage
+  fields:
+  - limit
+  - used
+  note: No OpenAPI fragment published for this operation.
+relationships:
+- from: Token
+  to: Chain
+  type: belongs_to
+  via: chain_id
+- from: Token
+  to: Contract
+  type: has_one
+  via: contract
+- from: Token
+  to: Permissions
+  type: has_one
+  via: permissions
+- from: Token
+  to: SwapSimulation
+  type: has_one
+  via: swap_simulation
+- from: Token
+  to: Balances
+  type: has_one
+  via: balances
+- from: Token
+  to: Pool
+  type: has_many
+  via: pools
+- from: Token
+  to: SmellTest
+  type: has_many
+  via: tests
+- from: Token
+  to: Exploit
+  type: has_many
+  via: exploits
+- from: Token
+  to: Address
+  type: belongs_to
+  via: deployer_address
+- from: Balances
+  to: Holder
+  type: has_many
+  via: top_holders
+- from: Pool
+  to: Holder
+  type: has_many
+  via: top_holders
+- from: Pool
+  to: Lock
+  type: has_many
+  via: locks
+- from: Pool
+  to: Token
+  type: belongs_to
+  via: base_address
+- from: Pair
+  to: Chain
+  type: belongs_to
+  via: chain_id
+- from: Address
+  to: Token
+  type: has_many
+  via: deployer_address
+- from: WebhookSubscription
+  to: Event
+  type: has_many
+  via: event_types
+- from: Event
+  to: Token
+  type: belongs_to
+  via: data.token_address + data.chain_id
+- from: Event
+  to: Pool
+  type: belongs_to
+  via: data.pool_address

@@ -1,0 +1,80 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://tokensniffer.readme.io/reference/create-webhook
+- https://tokensniffer.readme.io/reference/event-types
+- https://tokensniffer.readme.io/reference/notification-request
+- skills/references/webhooks.md
+spec_type: Webhooks
+asyncapi_published: false
+asyncapi_note: Solidus Labs publishes NO AsyncAPI document for TokenSniffer. Probed the docs host, the GitHub org
+  (SolidusLabsExternal, 4 repos), /asyncapi.yaml and the event-catalog pages — nothing. This artifact is the webhook
+  catalog as documented in prose plus the provider-published OpenAPI for the v3 subscription API. It is NOT an AsyncAPI
+  document and must not be counted as one.
+subscription_api:
+  openapi: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
+  base_url: https://tokensniffer.com/api/v3/webhooks
+  operations:
+  - create-webhook
+  - list-webhooks
+  - get-webhook
+  - update-webhook
+  - delete-webhook
+  plan: Enterprise
+transport:
+  protocol: https
+  method: POST
+  target: caller-registered callback_url (HTTPS only)
+  batching: events are batched and sent every 60 seconds, up to 5,000 events per request
+  ack: callback must return 200 OK or 204 No Content within 5 seconds
+  retry: up to 3 retries on a non-2xx response or timeout
+  signing: SHA-256 HMAC over the notification using the secret supplied at subscription creation
+  dedupe: clients must dedupe on events[].id
+payload:
+  total: integer — number of events in this callback
+  events: array of event objects
+  event:
+    id: string — unique event identifier
+    type: string — event type identifier
+    timestamp: string — ISO timestamp of the event occurrence
+    data: object — event-specific fields
+events:
+- type: TOKEN.CREATED
+  status: available
+  description: Emitted when a new token deployment is detected.
+  data:
+  - chain_id (integer)
+  - token_address (string)
+  - name (string)
+  - symbol (string)
+- type: TOKEN.MALICIOUS
+  status: available
+  description: Emitted when a token is flagged as a scam.
+  data:
+  - chain_id (integer)
+  - token_address (string)
+  - 'exploits[] (array of objects: id, name, types[])'
+  vocabulary: vocabulary/solidus-labs-exploit-types.yml
+- type: LIQUIDITY.CREATED
+  status: available
+  description: Emitted when a new liquidity pool deployment is detected.
+  data:
+  - chain_id (integer)
+  - pool_address (string)
+  - token_address (both pool sides)
+- type: LIQUIDITY.REMOVED
+  status: available
+  description: Rugpull detected in pool.
+- type: TOKEN.BALANCE.CHANGE
+  status: coming soon
+  description: Holder balance change greater than 5%.
+- type: TOKEN.SUPPLY.CHANGE
+  status: coming soon
+  description: Token supply change (mint/burn).
+planned_but_unshipped:
+- Token score change
+- Wash trading detected for token
+- Insider trading detected for token
+availability_conflict: The pricing table marks "Webhook Notifications" as *Coming Soon!* for the Enterprise Pack,
+  while the Latest Updates changelog says "Webhook notifications released" in September 2025 and the v3 OpenAPI is
+  published. The provider’s own surfaces disagree; recorded rather than resolved.

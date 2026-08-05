@@ -1,0 +1,39 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://tokensniffer.readme.io/reference/api-integration
+- https://www.npmjs.com/package/tokensniffer-widgets
+- https://github.com/SolidusLabsExternal/tokensniffer-widgets
+families:
+- family: TokenSniffer Widgets
+  kind: react-components
+  package: tokensniffer-widgets
+  loader: npm install tokensniffer-widgets
+  license: MIT
+  official: true
+  demo: https://tokensniffer.com/widgets
+  components:
+  - name: ScoreBadge
+    description: Renders the TokenSniffer 0-100 token score as a badge.
+  - name: SmellTestResults
+    description: Renders the full Smell Test result set for a token.
+  - name: Gauge
+    description: Score gauge primitive used by ScoreBadge.
+  - name: Logo
+    description: TokenSniffer logo mark.
+  - name: CircledCheckIcon
+    description: Pass indicator used in Smell Test rows.
+  - name: CircledXIcon
+    description: Fail indicator used in Smell Test rows.
+  theming: src/theme/themes.js + global.css ship with the package.
+  note: These render data the CALLER has already fetched server-side — they do not embed the API key. Last published
+    2023-08-31 (v0.0.10).
+hosted_surfaces:
+- name: HALO dashboard
+  url: https://dashboard.prod-us-east-1.soliduslabs.app/auth/login
+  regions:
+  - prod-us-east-1
+  - prod-eu-central-1
+  - prod-ap-southeast-1
+  kind: customer web application
+  note: Contracted-customer login for the HALO platform; not an embeddable component and not publicly documented.

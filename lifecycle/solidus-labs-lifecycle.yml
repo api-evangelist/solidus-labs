@@ -1,0 +1,58 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://tokensniffer.readme.io/reference/latest-updates
+- https://tokensniffer.readme.io/reference/pricing
+- openapi/*.yml
+versioning:
+  scheme: uri-path
+  current:
+    read_surface: v2
+    webhooks: v3
+  hosts:
+  - https://tokensniffer.com/api/v2
+  - https://tokensniffer.com/api/v3
+  docs: https://tokensniffer.readme.io/
+  note: No version header and no date-pinning; two majors run side by side on the same host.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: null
+  note: PROBED AND ABSENT — no deprecation or sunset policy is published anywhere on tokensniffer.readme.io or soliduslabs.com,
+    and no RFC 8594 Sunset/Deprecation header is documented. No apis.yml Deprecation pointer is emitted because the
+    policy does not exist.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  published_response_times:
+  - operation: get-token-results
+    typical_seconds: 0.1 - 0.4
+    condition: default (token info and scam status)
+  - operation: get-token-results
+    typical_seconds: 0.1 - 5
+    condition: include_metrics and/or include_tests; 2-5s when results need a refresh (every 5-30 minutes)
+  - operation: get-address-results
+    typical_seconds: 0.1 - 1
+  - operation: get-malicious-tokens
+    typical_seconds: 2 - 5
+  - operation: get-malicious-addresses
+    typical_seconds: 2 - 5
+  source: https://tokensniffer.readme.io/reference/api-response
+  note: Typical response times are published; a contractual uptime SLA is not.
+status_page: null
+status_page_note: PROBED AND ABSENT — status.soliduslabs.com and status.tokensniffer.com do not resolve, and no status/uptime
+  page is linked from the site, the docs or the llms.txt. No StatusPage pointer is emitted.
+freshness:
+  new_contract_detection: within ~30 seconds of deployment
+  result_refresh: every 5-15 minutes (docs also state 5-30 minutes on the response-time table)
+  score_stability: a token holding a perfect 100/100 score will not move more than 20 points within a two-week window
+  source: https://tokensniffer.readme.io/reference/faq
+changelog: changelog/solidus-labs-changelog.yml
+evidence:
+- url: https://status.soliduslabs.com/
+  status: 0
+  note: DNS does not resolve
+- url: https://www.soliduslabs.com/security
+  status: 200
+  note: 302/redirects to the homepage — no security or trust page exists at that path

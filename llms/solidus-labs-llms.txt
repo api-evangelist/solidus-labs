@@ -1,0 +1,81 @@
+﻿# Solidus Labs
+
+
+> Solidus Labs is the category-defining platform for crypto-native compliance, trade surveillance, and risk monitoring. Founded in 2018 by Goldman Sachs veterans, the company provides the HALO platform, an AI-powered compliance control hub trusted by leading exchanges, broker-dealers, market makers, and financial institutions globally. Solidus covers digital assets, derivatives, equities, and fixed income from a single platform.
+
+
+Solidus Labs operates eight product modules under the HALO platform: Trade Surveillance, Transaction Monitoring, Stablecoin Monitoring, Token Monitoring (powered by TokenSniffer), Execution Quality, Case Management, Agentic-AI Workflows, and Professional Services. The company serves clients across six continents including regulated exchanges, broker-dealers (FINRA-registered and international), market makers, asset managers, custodians, OTC desks, stablecoin issuers, and regulators.
+
+
+Key differentiators: crypto-native detection models purpose-built for volatile, fragmented, 24/7 digital asset markets; multidimensional architecture correlating trading behavior with funding flows, KYC data, wallet analytics, and social sentiment; unified fiat and onchain monitoring in a single engine; integration with Chainalysis, TRM Labs, and Elliptic; and the industry's first execution quality framework for digital assets.
+
+
+Headquartered in New York, with offices in Tel Aviv and London. CEO: Asaf Meir. 
+## Products
+
+
+- [HALO Platform](https://www.soliduslabs.com/solutions/platform): Unified compliance control hub. Eight integrated modules with shared risk intelligence, multidimensional data architecture, and configurable detection across every asset class and venue type.
+- [Trade Surveillance](https://www.soliduslabs.com/solutions/trade-surveillance): Real-time, cross-venue trade surveillance for digital assets and traditional markets. Detects spoofing, wash trading, layering, front-running, insider trading, and cross-venue manipulation with crypto-native behavioral models.
+- [Transaction Monitoring](https://www.soliduslabs.com/solutions/transaction-monitoring): Unified fiat and onchain AML screening. Screens deposits, withdrawals, and transactional flows across fiat rails and crypto in one engine with multidimensional risk scoring, onchain analytics, and continuous sanctions screening.
+- [Stablecoin Monitoring](https://www.soliduslabs.com/solutions/stablecoin-monitoring): Full-lifecycle compliance for stablecoin issuers covering primary market operations (mint/burn, reserve monitoring) and secondary market activity (onchain circulation, DeFi interactions). Supports GENIUS Act, MiCA, and HKMA requirements.
+- [Token Monitoring](https://www.soliduslabs.com/solutions/token-monitoring): Powered by TokenSniffer. Automated smart contract scam detection, liquidity and rug pull risk assessment, holder distribution analysis, and real-time malicious token alerting across 15+ chains. 250,000+ scam tokens identified since 2021.
+- [Execution Quality](https://www.soliduslabs.com/solutions/execution-quality): The industry's first execution quality framework for digital asset markets. Cross-venue price benchmarking, execution deviation monitoring, and defensible audit trails. Supports MiCA Article 78, FINRA Rule 5310, MAS DPT Framework, and HK SFC guidelines.
+- [Case Management](https://www.soliduslabs.com/solutions/case-management): AI-powered investigation hub unifying trade surveillance, transaction monitoring, and KYC alerts in one console. Multidimensional case prioritization, automated triage, shared risk metadata, and full audit trail from alert to regulatory filing.
+- [Agentic-AI Workflows](https://www.soliduslabs.com/solutions/agentic-based-compliance): AI agent network for compliance operations. Solomon (orchestration agent) coordinates specialized agents for alert triage, investigation drafting, regulatory research, and cross-module correlation.
+- [Professional Services](https://www.soliduslabs.com/solutions/professional-services): Investigative services (market abuse, insider trading, smart contract forensics), compliance program development, cross-jurisdictional licensing support, and HALO optimization including model tuning, analyst training, and policy development.
+
+
+## Reports and Research
+
+
+- [Rethinking Best Execution in Digital Assets](https://www.soliduslabs.com/reports/execution-quality-digital-assets): The industry's first framework for translating Best Execution principles into digital asset markets. Covers the four structural gaps (price, symbols, venues, routing), cross-venue benchmarking methodology, and regulatory landscape.
+- [Digital Asset Compliance Talent & Salary Guide 2026](https://www.soliduslabs.com/reports/digital-asset-compliance-talent-salary-guide-2026): Global compensation data, executive interviews, and hiring patterns for digital asset compliance professionals.
+- [Crypto Wash Trading Report](https://www.soliduslabs.com/reports/crypto-wash-trading): Analysis of wash trading patterns across centralized and decentralized exchanges.
+- [Solana Rug Pulls and Pump & Dumps](https://www.soliduslabs.com/reports/solana-rug-pulls-pump-dumps-crypto-compliance): TokenSniffer data on scam token deployment patterns on Solana.
+- [Crypto Insider Trading Report](https://www.soliduslabs.com/reports/crypto-insider-trading): Research on insider trading detection in crypto markets.
+- [Global Crypto Enforcement Trends](https://www.soliduslabs.com/reports/global-crypto-enforcement): Regulatory enforcement analysis across jurisdictions.
+
+
+## Client Use Cases
+
+
+- [Exchanges](https://www.soliduslabs.com/clients/exchanges): 24/7 surveillance across spot, derivatives, and prediction markets.
+- [Institutional Broker-Dealers](https://www.soliduslabs.com/clients/institutional-broker-dealers): Unified surveillance covering traditional and digital asset classes under FINRA 3110 / MiFID II obligations.
+- [Market Makers](https://www.soliduslabs.com/clients/market-makers): Multi-venue cross-correlation demonstrating trading legitimacy across every market touched.
+- [Stablecoin and Tokenized Asset Issuers](https://www.soliduslabs.com/clients/stablecoin-and-tokenized-asset-issuers): Issuance-layer monitoring with cross-rail correlation into secondary market oversight.
+- [Regulators](https://www.soliduslabs.com/clients/digital-asset-regulators): Independent, venue-agnostic surveillance for supervisory analysis.
+- [Proprietary Trading Firms](https://www.soliduslabs.com/clients/proprietary-trading-firms): Surveillance proving activity legitimacy across multiple venues simultaneously.
+- [Qualified Custodians](https://www.soliduslabs.com/clients/qualified-custodians): Pre-settlement risk scoring combining counterparty KYC, wallet analytics, and behavioral baselines.
+
+
+## Customer Stories
+
+
+- [HashKey](https://www.soliduslabs.com/customer-stories/hashkey)
+- [Kairon Labs](https://www.soliduslabs.com/customer-stories/kairon-labs)
+- [One Trading](https://www.soliduslabs.com/customer-stories/one-trading)
+- [FalconX](https://www.soliduslabs.com/customer-stories/falconx)
+- [BitMEX](https://www.soliduslabs.com/customer-stories/bitmex)
+- [EDX Markets](https://www.soliduslabs.com/customer-stories/edx-markets)
+- [Luno](https://www.soliduslabs.com/customer-stories/luno)
+- [Amber Group](https://www.soliduslabs.com/customer-stories/amber-group)
+
+
+## Company
+
+
+- [About](https://www.soliduslabs.com/about): Company overview, mission, and leadership team.
+- [Newsroom](https://www.soliduslabs.com/newsroom): Press releases and media coverage.
+- [Blog](https://www.soliduslabs.com/blog): Thought leadership on crypto compliance, regulation, and market integrity.
+- [Compliance Champions Podcast](https://www.soliduslabs.com/podcast): Interviews with compliance leaders, regulators, and industry experts across 100+ episodes.
+- [TokenSniffer API](https://www.soliduslabs.com/tokensniffer/api): API access for token risk scoring, scam detection, and malicious token/address lists.
+- [Request a Demo](https://www.soliduslabs.com/demo): Schedule a demo of the HALO platform.
+
+
+## Optional
+
+
+- [Trade Surveillance Academy](https://www.soliduslabs.com/resources): Educational resources on trade surveillance and compliance.
+- [Events](https://www.soliduslabs.com/events): Upcoming conferences, webinars, and industry events.
+- [Careers](https://www.soliduslabs.com/careers): Open positions at Solidus Labs.
+- [Digital Asset Compliance Job Board](https://www.soliduslabs.com/digital-asset-compliance-job-board): Industry-wide compliance job listings.

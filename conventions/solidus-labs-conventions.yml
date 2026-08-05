@@ -1,0 +1,144 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://tokensniffer.readme.io/reference/api-key
+- https://tokensniffer.readme.io/reference/api-response
+- https://tokensniffer.readme.io/reference/pricing
+- https://tokensniffer.readme.io/reference/notification-request
+- openapi/*.yml
+- https://github.com/SolidusLabsExternal/tokensniffer-skills
+api: TokenSniffer API
+authentication:
+  style: api-key
+  primary:
+    location: query
+    parameter: apikey
+    docs: https://tokensniffer.readme.io/reference/api-key
+    declared_in: OpenAPI components.securitySchemes.sec0 (type apiKey, in query, name apikey)
+  also_declared:
+    location: header
+    parameter: X-API-Key
+    note: Every operation in the provider-published OpenAPI fragments also declares an X-API-Key HEADER parameter
+      alongside the apikey query securityScheme. The prose docs and the first-party CLI (tokensniffer/api.py) use
+      ONLY the query parameter, so the header form is undocumented in prose and unverified.
+  provider_warning: '"Never expose the key client-side. All requests must be performed server-side to ensure that
+    the API key is kept secret." — the key travels in the URL query string, so it lands in proxy logs, referrers and
+    browser history.'
+  unauthenticated_operations:
+  - get-supported-networks
+  artifact: authentication/solidus-labs-authentication.yml
+idempotency:
+  request_idempotency_key: false
+  note: TokenSniffer publishes NO request-level idempotency key. The read surface is entirely GET and naturally idempotent;
+    the only write operations are the v3 webhook subscription CRUD calls, which carry no Idempotency-Key header or
+    parameter. The word "idempotency" appears in the docs only as a CONSUMER obligation on webhook delivery (dedupe
+    on the event id), not as an API contract.
+  consumer_side_webhook_dedupe:
+    field: events[].id
+    rule: '"Clients must utilize the unique id field within each event to prevent duplicate processing due to network
+      errors or retries."'
+    source: https://tokensniffer.readme.io/reference/notification-request
+pagination:
+  style: limit-offset
+  parameters:
+  - name: limit
+    in: query
+    default: 100
+    max: 5000
+  - name: offset
+    in: query
+    default: 0
+  response_fields:
+  - total
+  - result
+  applies_to:
+  - list-latest-tokens
+  - get-malicious-tokens
+  - list-corrected-tokens
+  - getting-started-with-your-api
+  - list-malicious-pairs
+  - list-tokens-with-malicious-pairs
+  - get-malicious-addresses
+  - list-webhooks
+  source: https://tokensniffer.readme.io/reference/get-malicious-tokens
+filtering:
+  time_window:
+    parameters:
+    - start_time
+    - end_time
+    note: Feed endpoints cover a rolling 24-hour window; start_time/end_time narrow it.
+  chain:
+    parameter: chain_id
+    vocabulary: get-supported-networks returns the chain id/name/alias list (15 chains at probe time)
+  deployer:
+    parameter: deployer_address
+    applies_to:
+    - get-malicious-tokens
+    - get-malicious-addresses
+field_expansion:
+  style: boolean include flags
+  parameters:
+  - include_metrics
+  - include_tests
+  - include_similar
+  note: On get-token-results the metrics and Smell Test blocks are OFF by default and cost response time (0.1-0.4s
+    default vs 0.1-5s with metrics/tests); block_until_ready waits for a refresh instead of returning stale results.
+  source: https://tokensniffer.readme.io/reference/get-token-results
+response_envelope:
+  collections:
+    total: integer count
+    result: array of objects
+  single: bare object
+  media_type: application/json
+error_envelope:
+  format: plain JSON with an HTTP status and a message string — NOT RFC 9457 problem+json
+  catalog: errors/solidus-labs-problem-types.yml
+  source: https://tokensniffer.readme.io/reference/api-response
+versioning:
+  scheme: uri-path
+  current:
+    tokens/addresses/pairs/chains: v2
+    webhooks: v3
+  note: 'Two live major versions on the same host: /api/v2 for the read surface, /api/v3 for webhook subscriptions.
+    No version header, no date pinning, no published deprecation policy.'
+rate_limit_signaling:
+  limit: 5 requests/second, plus at most 5 concurrent get-token-results in pending status
+  breach_status: 429
+  headers_published: false
+  note: No RateLimit / X-RateLimit response headers are documented. A client learns its position only from the 429
+    and from the get-usage endpoint.
+  quota_probe:
+    operation: get-usage
+    path: GET https://tokensniffer.com/api/v2/usage
+    returns:
+      limit: requests per day
+      used: requests counted in the daily window
+    source:
+    - https://tokensniffer.readme.io/reference/get-usage-statistics
+    - https://github.com/SolidusLabsExternal/tokensniffer-cli/blob/main/tokensniffer/api.py
+    note: Documented in prose and implemented in the first-party CLI, but the provider publishes NO OpenAPI fragment
+      for it, so it is absent from openapi/.
+  accounting: Only UNIQUE token requests count against the daily quota; repeat lookups of the same token and non-200
+    responses are free.
+  artifact: rate-limits/solidus-labs-rate-limits.yml
+request_tracing:
+  request_id_header: null
+  note: No request-id / correlation header is documented.
+retries:
+  client_guidance: On a 404 from get-token-results for a freshly deployed token, retry after 1-2 minutes — analysis
+    lands within ~30 seconds of deployment but source code may arrive later.
+  source: https://tokensniffer.readme.io/reference/api-response
+webhooks:
+  transport: HTTPS POST to a caller-registered callback_url
+  batching: up to 5,000 events per POST, flushed every 60 seconds
+  ack_requirement: 200 or 204 within 5 seconds
+  retry: up to 3 retries on non-2xx or timeout
+  signing: SHA-256 HMAC using the caller-supplied secret set at subscription creation
+  artifact: asyncapi/solidus-labs-tokensniffer-webhooks.yml
+cross_links:
+  errors: errors/solidus-labs-problem-types.yml
+  lifecycle: lifecycle/solidus-labs-lifecycle.yml
+  authentication: authentication/solidus-labs-authentication.yml
+  rate_limits: rate-limits/solidus-labs-rate-limits.yml
+  plans: plans/solidus-labs-plans.yml
+  vocabulary: vocabulary/solidus-labs-exploit-types.yml

@@ -1,0 +1,117 @@
+generated: '2026-08-05'
+method: derived
+status: candidate
+source: openapi/*.yml
+note: 'Solidus Labs publishes NO MCP server. Searched the TokenSniffer docs and llms.txt, the soliduslabs.com llms.txt,
+  the SolidusLabsExternal GitHub org (4 repos: tokensniffer-widgets, tokensniffer-cli, tokensniffer-skills, forta-solidus-bot),
+  npm, and the public MCP registries — nothing exists, and no /mcp or /sse endpoint answered on any Solidus Labs or
+  TokenSniffer host. The tools below are a CANDIDATE surface derived one-per-operation from the provider-published
+  OpenAPI; each tool inherits its real input schema from the named operation. This is a proposal, not a provider claim.'
+provider_signal: 'Solidus Labs does ship an agent surface: an official Agent Skill (SKILL.md + six reference files
+  + evals) at github.com/SolidusLabsExternal/tokensniffer-skills, harvested to skills/. It ships agent instructions,
+  not an MCP server.'
+server:
+  name: tokensniffer
+  transport: http
+  url: null
+auth:
+  methods:
+  - apikey
+  apikey:
+    in: query
+    parameter: apikey
+    env: TOKENSNIFFER_API_KEY
+    warning: 'A query-string key is a poor fit for an MCP host: it lands in URLs and logs. An MCP wrapper should hold
+      the key server-side and never surface it as a tool argument.'
+tool_count: 15
+tools:
+- name: list_malicious_addresses
+  category: addresses
+  description: List Malicious Addresses
+  source_operation: openapi/solidus-labs-tokensniffer-addresses-openapi.yml#get-malicious-addresses
+  http: GET https://tokensniffer.com/api/v2/addresses/scams
+  read_only: true
+- name: get_address
+  category: addresses
+  description: Get Address
+  source_operation: openapi/solidus-labs-tokensniffer-addresses-openapi.yml#get-address-results
+  http: GET https://tokensniffer.com/api/v2/addresses/{address}
+  read_only: true
+- name: list_supported_chains
+  category: chains
+  description: List Supported Chains
+  source_operation: openapi/solidus-labs-tokensniffer-chains-openapi.yml#get-supported-networks
+  http: GET https://tokensniffer.com/api/v2/chains/
+  read_only: true
+- name: list_latest_pairs
+  category: pairs
+  description: List Latest Pairs
+  source_operation: openapi/solidus-labs-tokensniffer-pairs-openapi.yml#getting-started-with-your-api
+  http: GET https://tokensniffer.com/api/v2/pairs/latest
+  read_only: true
+- name: list_malicious_pairs
+  category: pairs
+  description: List Malicious Pairs
+  source_operation: openapi/solidus-labs-tokensniffer-pairs-openapi.yml#list-malicious-pairs
+  http: GET https://tokensniffer.com/api/v2/pairs/scams
+  read_only: true
+- name: list_tokens_with_malicious_pairs
+  category: pairs
+  description: List Tokens with Malicious Pairs
+  source_operation: openapi/solidus-labs-tokensniffer-pairs-openapi.yml#list-tokens-with-malicious-pairs
+  http: GET https://tokensniffer.com/api/v2/pairs/scams/tokens
+  read_only: true
+- name: list_corrected_tokens
+  category: tokens
+  description: List Corrected Tokens
+  source_operation: openapi/solidus-labs-tokensniffer-tokens-openapi.yml#list-corrected-tokens
+  http: GET https://tokensniffer.com/api/v2/tokens/corrections
+  read_only: true
+- name: list_latest_tokens
+  category: tokens
+  description: List Latest Tokens
+  source_operation: openapi/solidus-labs-tokensniffer-tokens-openapi.yml#list-latest-tokens
+  http: GET https://tokensniffer.com/api/v2/tokens/latest
+  read_only: true
+- name: list_malicious_tokens
+  category: tokens
+  description: List Malicious Tokens
+  source_operation: openapi/solidus-labs-tokensniffer-tokens-openapi.yml#get-malicious-tokens
+  http: GET https://tokensniffer.com/api/v2/tokens/scams
+  read_only: true
+- name: get_token
+  category: tokens
+  description: Get Token
+  source_operation: openapi/solidus-labs-tokensniffer-tokens-openapi.yml#get-token-results
+  http: GET https://tokensniffer.com/api/v2/tokens/{chain_id}/{address}
+  read_only: true
+- name: create_webhook
+  category: webhooks
+  description: Create Webhook
+  source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#create-webhook
+  http: POST https://tokensniffer.com/api/v3/webhooks/
+  read_only: false
+- name: list_webhooks
+  category: webhooks
+  description: List Webhooks
+  source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#list-webhooks
+  http: GET https://tokensniffer.com/api/v3/webhooks/
+  read_only: true
+- name: delete_webhook
+  category: webhooks
+  description: Delete Webhook
+  source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#delete-webhook
+  http: DELETE https://tokensniffer.com/api/v3/webhooks/{subscription_id}
+  read_only: false
+- name: get_webhook
+  category: webhooks
+  description: Get Webhook
+  source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#get-webhook
+  http: GET https://tokensniffer.com/api/v3/webhooks/{subscription_id}
+  read_only: true
+- name: update_webhook
+  category: webhooks
+  description: Update Webhook
+  source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#update-webhook
+  http: PATCH https://tokensniffer.com/api/v3/webhooks/{subscription_id}
+  read_only: false

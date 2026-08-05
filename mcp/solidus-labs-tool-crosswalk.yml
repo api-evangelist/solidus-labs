@@ -1,0 +1,146 @@
+generated: '2026-08-05'
+method: derived
+source:
+- mcp/solidus-labs-mcp.yml
+- openapi/*.yml
+note: One-to-one crosswalk. Because the MCP tool set is a candidate derived FROM the OpenAPI (no published MCP server
+  exists), every binding is exact by construction and there are no MCP-only tools. Recorded so the surface divergence
+  — or its absence — is explicit.
+surfaces:
+  openapi:
+    files:
+    - openapi/solidus-labs-tokensniffer-addresses-openapi.yml
+    - openapi/solidus-labs-tokensniffer-chains-openapi.yml
+    - openapi/solidus-labs-tokensniffer-pairs-openapi.yml
+    - openapi/solidus-labs-tokensniffer-tokens-openapi.yml
+    - openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
+    operations: 15
+    gated: false
+    note: Assembled verbatim from provider-published OpenAPI 3.1.0 fragments; live calls to /api/v2/chains returned
+      200 anonymously, the rest require an apikey.
+  graphql:
+    endpoint: null
+    note: No GraphQL surface exists on any Solidus Labs or TokenSniffer host.
+  mcp:
+    url: null
+    gated: null
+    note: No MCP server published; tools/list could not be called because there is no endpoint.
+crosswalk:
+- tool: list_malicious_addresses
+  category: addresses
+  rest:
+  - get-malicious-addresses
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: get_address
+  category: addresses
+  rest:
+  - get-address-results
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_supported_chains
+  category: chains
+  rest:
+  - get-supported-networks
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_latest_pairs
+  category: pairs
+  rest:
+  - getting-started-with-your-api
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_malicious_pairs
+  category: pairs
+  rest:
+  - list-malicious-pairs
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_tokens_with_malicious_pairs
+  category: pairs
+  rest:
+  - list-tokens-with-malicious-pairs
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_corrected_tokens
+  category: tokens
+  rest:
+  - list-corrected-tokens
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_latest_tokens
+  category: tokens
+  rest:
+  - list-latest-tokens
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_malicious_tokens
+  category: tokens
+  rest:
+  - get-malicious-tokens
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: get_token
+  category: tokens
+  rest:
+  - get-token-results
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: create_webhook
+  category: webhooks
+  rest:
+  - create-webhook
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: list_webhooks
+  category: webhooks
+  rest:
+  - list-webhooks
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: delete_webhook
+  category: webhooks
+  rest:
+  - delete-webhook
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: get_webhook
+  category: webhooks
+  rest:
+  - get-webhook
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+- tool: update_webhook
+  category: webhooks
+  rest:
+  - update-webhook
+  binding: rest
+  confidence: high
+  note: Derived directly from this operation; inputSchema is that operation’s parameters + requestBody.
+mcp_only: []
+rest_only:
+- operation: get-usage
+  group: usage
+  reason: GET /api/v2/usage is documented in prose and implemented in the first-party CLI, but the provider publishes
+    no OpenAPI fragment for it, so it is absent from openapi/ and has no derived tool.
+coverage:
+  tools_named: 15
+  tools_bound: 15
+  mcp_only: 0
+  rest_ops_total: 15
+  rest_ops_with_tool: 15
+  documented_ops_without_spec: 1

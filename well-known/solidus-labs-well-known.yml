@@ -1,0 +1,78 @@
+generated: '2026-08-05'
+method: probed
+source: live GET probes, 2026-08-05
+result: NO /.well-known document was found on any Solidus Labs or TokenSniffer host. No WellKnown, SecurityTxt or
+  APICatalog capability exists; the file records the misses so a later run does not re-litigate them.
+hosts:
+- host: https://www.soliduslabs.com
+  server: Webflow
+  note: Every /.well-known/* path returns HTTP 404 with the body "Invalid .well-known request" — an explicit, non-soft
+    404.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://tokensniffer.com
+  server: Cloudflare
+  note: Every non-/api path returns a Cloudflare interstitial ("Just a moment...") with HTTP 403 to a non-browser
+    client. The /api/v2 surface itself answers normally (GET /api/v2/chains → 200), so the API is reachable while
+    the well-known namespace is not observable.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    blocked_by: cloudflare-challenge
+  - path: /.well-known/agent-card.json
+    status: 403
+    blocked_by: cloudflare-challenge
+  - path: /.well-known/agent.json
+    status: 403
+    blocked_by: cloudflare-challenge
+  - path: /llms.txt
+    status: 403
+    blocked_by: cloudflare-challenge
+- host: https://dashboard.prod-us-east-1.soliduslabs.app
+  server: Angular SPA
+  note: FALSE-POSITIVE HOST — the SPA catch-all returns HTTP 200 with an HTML shell for EVERY path including /.well-known/agent-card.json,
+    /openapi.json and /swagger.json. No path returned JSON. Nothing here is a discovery document.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /openapi.json
+    status: 200
+    content_type: text/html
+    valid: false
+  - path: /swagger.json
+    status: 200
+    content_type: text/html
+    valid: false
+documents: []
+no_agent_card: A2A probe missed on every host. Per pipeline policy no a2a/ artifact was authored.

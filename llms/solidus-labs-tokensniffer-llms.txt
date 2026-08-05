@@ -1,0 +1,34 @@
+# TokenSniffer API Documentation
+
+> TokenSniffer API provides access to the contract auditing, token security, and scam detection features on the popular tokensniffer.com website.
+
+## API Reference
+- [Introduction](https://tokensniffer.readme.io/reference/introduction.md)
+- [FAQ](https://tokensniffer.readme.io/reference/faq.md)
+- [Supported Chains & DEXes](https://tokensniffer.readme.io/reference/supported-networks.md)
+- [List Supported Chains](https://tokensniffer.readme.io/reference/get-supported-networks.md): Get a list of supported blockchains including chain IDs.  API key not required.
+- [API Key](https://tokensniffer.readme.io/reference/api-key.md)
+- [Get usage statistics](https://tokensniffer.readme.io/reference/get-usage-statistics.md): Get the current request limit per day and number of requests for the specified API key.
+- [API Response](https://tokensniffer.readme.io/reference/api-response.md)
+- [API Pricing](https://tokensniffer.readme.io/reference/pricing.md)
+- [Integration](https://tokensniffer.readme.io/reference/api-integration.md)
+- [Support Contact](https://tokensniffer.readme.io/reference/support-contact.md)
+- [Latest Updates](https://tokensniffer.readme.io/reference/latest-updates.md)
+- [Get Token](https://tokensniffer.readme.io/reference/get-token-results.md): Get token information, metrics, similar contracts, and Smell Test results including token score and scam status.  Available with the Pro and Enterprise plans.
+- [Response Data](https://tokensniffer.readme.io/reference/response.md)
+- [List Latest Tokens](https://tokensniffer.readme.io/reference/list-latest-tokens.md): Get the latest tokens created in the last 24 hours.  Available with the Enterprise plan.
+- [List Malicious Tokens](https://tokensniffer.readme.io/reference/get-malicious-tokens.md): Get the scam tokens flagged in the last 24 hours.  Available with the Enterprise plan.
+- [List Corrected Tokens](https://tokensniffer.readme.io/reference/list-corrected-tokens.md): Get the tokens which were un-flagged in the last 24 hours.  Available with the Enterprise plan.
+- [Exploit Types](https://tokensniffer.readme.io/reference/exploit-typologies.md)
+- [List Latest Pairs](https://tokensniffer.readme.io/reference/getting-started-with-your-api.md): Get the latest trading pairs created in the last 24 hours.  Available with the Enterprise plan.
+- [List Malicious Pairs](https://tokensniffer.readme.io/reference/list-malicious-pairs.md): Get the trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan.
+- [List Tokens with Malicious Pairs](https://tokensniffer.readme.io/reference/list-tokens-with-malicious-pairs.md): Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan.
+- [Get Address](https://tokensniffer.readme.io/reference/get-address-results.md): Get scam tokens for address.  Available with the Pro and Enterprise plans.
+- [List Malicious Addresses](https://tokensniffer.readme.io/reference/get-malicious-addresses.md): Get the addresses that deployed a known scam token in the last 24 hours.  Available with the Enterprise plan.
+- [Create Webhook](https://tokensniffer.readme.io/reference/create-webhook.md): Create a new webhook subscription.
+- [Event Types](https://tokensniffer.readme.io/reference/event-types.md)
+- [List Webhooks](https://tokensniffer.readme.io/reference/list-webhooks.md): Return a paginated list of all active webhook subscriptions.
+- [Get Webhook](https://tokensniffer.readme.io/reference/get-webhook.md): Fetch the configuration details for a webhook subscription.
+- [Update Webhook](https://tokensniffer.readme.io/reference/update-webhook.md)
+- [Delete Webhook](https://tokensniffer.readme.io/reference/delete-webhook.md): Deactivate a webhook subscription.
+- [Notification Request](https://tokensniffer.readme.io/reference/notification-request.md)

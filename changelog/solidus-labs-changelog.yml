@@ -1,0 +1,39 @@
+generated: '2026-08-05'
+method: searched
+source: https://tokensniffer.readme.io/reference/latest-updates
+api: TokenSniffer API
+scheme: dated feature log (month granularity, no semantic version tags)
+current_version:
+  read_surface: v2
+  webhooks: v3
+window: recent entries as published on the Latest Updates page at probe time
+entries:
+- date: 2025-09
+  breaking: false
+  additions:
+  - Webhook notifications released.
+  note: The v3 webhook subscription API (create/list/get/update/delete) dates from here.
+- date: 2025-08
+  breaking: false
+  additions:
+  - Sniper and insider detection for Solana.
+- date: 2025-04
+  breaking: false
+  additions:
+  - Started flagging serial rugpull tokens.
+  note: Added the "Serial rug pull" exploit type — see vocabulary/solidus-labs-exploit-types.yml.
+- date: 2025-03
+  breaking: false
+  additions:
+  - Added support for Solana chain.
+  - Added new endpoints for List Latest Pairs, List Malicious Pairs, and List Tokens with Malicious Pairs.
+  note: Origin of the Pair API (/api/v2/pairs).
+- date: 2025-02
+  breaking: false
+  additions:
+  - Started flagging impersonator tokens.
+  note: Added the "Suspected impersonator token" exploit type.
+- date: 2024-03
+  breaking: false
+  additions:
+  - Added support for Blast chain.

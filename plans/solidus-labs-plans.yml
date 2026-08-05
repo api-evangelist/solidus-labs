@@ -1,0 +1,57 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://www.soliduslabs.com/tokensniffer/api
+- https://tokensniffer.readme.io/reference/pricing
+api: TokenSniffer API
+currency: USD
+billing: Stripe subscription, auto-renewing
+plans:
+- name: Sniffer Pack Pro
+  price: 99
+  period: month
+  annual_price: 1128
+  annual_note: 5% discount on annual
+  purchase_url: https://www.soliduslabs.com/tokensniffer/api
+  limits:
+    unique_token_lookups_per_day: 500
+    requests_per_second: 5
+  includes:
+  - get-token-results (token info, score, scam status, Smell Test results, on-chain metrics)
+  - get-address-results
+  - get-supported-networks
+  excludes:
+  - list-latest-tokens
+  - get-malicious-tokens
+  - list-corrected-tokens
+  - getting-started-with-your-api (List Latest Pairs)
+  - list-malicious-pairs
+  - list-tokens-with-malicious-pairs
+  - get-malicious-addresses
+  - webhook notifications
+- name: Enterprise Pack
+  price: null
+  period: month
+  pricing: contact for pricing
+  purchase_url: https://www.soliduslabs.com/tokensniffer/api
+  limits:
+    unique_token_lookups_per_day: 5000+
+    requests_per_second: 5
+  includes:
+  - everything in Sniffer Pack Pro
+  - 24-hour malicious token / pair / address feeds
+  - 24-hour latest token and pair feeds
+  - daily malicious token and address lists
+  - real-time alerting
+  - dedicated account manager
+  - webhook notifications (marked "Coming Soon" on the pricing table although the v3 webhook API and a September 2025
+    changelog entry are both live)
+  add_ons:
+  - full historical token data at additional cost
+free_trial:
+  available: true
+  length_days: 14
+  access: upon request
+  url: https://tokensniffer.com/contact
+refunds: Non-refundable; no refunds or credits for services already paid for.
+self_service_management: https://billing.stripe.com/p/login/bIY4hUajh7Kz0w0144 (Stripe billing portal)

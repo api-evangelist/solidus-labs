@@ -1,0 +1,23 @@
+{
+  "skill_name": "tokensniffer-api",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I'm looking at a BSC token at 0x0671d181e36f207b22df910fb9d1f2d981a6d574 — can you check the TokenSniffer API and tell me if it's safe to buy? Walk me through the key risk signals.",
+      "expected_output": "Accurate explanation of how to call GET /api/v2/tokens/56/0x0671d181e36f207b22df910fb9d1f2d981a6d574, what the key fields mean (is_flagged, exploits, score, contract flags), and a clear risk assessment based on the API response structure.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "I'm building an automated token screener in Python that pulls new tokens from TokenSniffer and flags risky ones before I trade. What fields should I check and in what order? Give me the actual code to call the API and the logic to rate each token.",
+      "expected_output": "Correct API endpoint usage (GET /api/v2/tokens/{chain_id}/{address}), appropriate use of include_metrics and include_tests flags, a clear decision tree (is_flagged → exploits → score → contract flags → swap simulation → liquidity lock), and working Python code using the apikey query parameter.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want to receive real-time alerts whenever TokenSniffer detects a new scam token on Base (chain 8453). How do I set up a webhook? What does the incoming request look like and how should my server handle it?",
+      "expected_output": "Correct POST to /api/v3/webhooks with callback_url, event_types: [TOKEN.MALICIOUS], secret, and filters: {chain_id: 8453}. Accurate description of the notification payload format, the 5-second response requirement, retry/idempotency guidance, and the IP allowlist (54.173.174.186, 54.156.31.250).",
+      "files": []
+    }
+  ]
+}

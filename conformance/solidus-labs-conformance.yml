@@ -1,0 +1,71 @@
+generated: '2026-08-05'
+method: searched
+source:
+- openapi/*.yml
+- https://tokensniffer.readme.io/reference/api-response
+- https://tokensniffer.readme.io/reference/api-key
+- https://www.soliduslabs.com/clients/digital-assets
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: 'All five harvested documents declare openapi: 3.1.0, published by the provider on each ReadMe operation
+    page.'
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in any spec; authentication is a single apiKey in the query string.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on soliduslabs.com; no OIDC surface is published for the
+    public API.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain JSON with a status/message pair; no application/problem+json media type appears in any
+    response.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.soliduslabs.com and is blocked by a Cloudflare challenge
+    (403) on tokensniffer.com.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation policy and no Sunset/Deprecation header documented.
+- id: asyncapi
+  conforms: false
+  evidence: Webhooks are documented in prose and a v3 REST subscription API; no AsyncAPI document is published.
+- id: pagination
+  conforms: true
+  evidence: Consistent limit/offset query parameters with a {total, result} envelope across all eight collection operations.
+- id: idempotency
+  conforms: false
+  evidence: No request-level idempotency key on the v3 webhook write operations; the docs mention idempotency only
+    as a consumer obligation on webhook event ids.
+- id: hmac-webhook-signing
+  conforms: true
+  evidence: Notifications are signed with SHA-256 HMAC using a caller-supplied secret registered at subscription creation.
+- id: llmstxt
+  conforms: true
+  evidence: Both www.soliduslabs.com/llms.txt (200) and tokensniffer.readme.io/llms.txt (200) are published and well-formed.
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json probed on soliduslabs.com (404), tokensniffer.com
+    (403 Cloudflare challenge) and the HALO dashboard hosts (SPA catch-all returning HTML) — no agent card exists.
+compliance_program:
+  published: true
+  url: https://www.soliduslabs.com/clients/digital-assets
+  claim: '"HALO is built with security and compliance at its core—featuring encryption in transit and at rest, and
+    full alignment with top global frameworks including SOC 2 Type II, ISO 27001, CIS v8, NIST CSF, GDPR, and DPF."'
+  frameworks:
+  - SOC 2 Type II
+  - ISO 27001
+  - CIS v8
+  - NIST CSF
+  - GDPR
+  - EU-US Data Privacy Framework (DPF)
+  audit_trail: '"A seven-year, tamper-proof audit trail ensures regulator-ready records from day one."'
+  caveat: This is a marketing-page ALIGNMENT claim about the HALO platform. Solidus Labs publishes no trust center,
+    no certification artifacts and no report-request flow — trust.soliduslabs.com does not resolve and /security and
+    /trust both redirect to the homepage. The frameworks are recorded as claimed, not as independently evidenced.
+regulatory_context:
+  note: 'Solidus Labs positions HALO against named regimes rather than conforming to them as an API: MiCA Article
+    78, FINRA Rule 5310, FINRA 3110, MiFID II, MAS DPT Framework, HK SFC guidelines, the GENIUS Act and HKMA stablecoin
+    requirements. These are the obligations its CUSTOMERS carry, not standards its API implements.'
+  source: https://www.soliduslabs.com/llms.txt

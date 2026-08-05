@@ -1,0 +1,42 @@
+generated: '2026-08-05'
+method: searched
+source: https://github.com/SolidusLabsExternal/tokensniffer-cli
+name: tokensniffer
+language: python
+license: MIT
+official: true
+repository: https://github.com/SolidusLabsExternal/tokensniffer-cli
+homepage: https://tokensniffer.com
+docs: https://tokensniffer.readme.io/reference/introduction
+last_pushed: '2023-09-18'
+install:
+- method: pip (git over SSH)
+  command: pip install git+ssh://git@github.com/SolidusLabsExternal/tokensniffer-cli.git@tokensniffer-py
+- method: pip (local clone)
+  command: git clone git@github.com:SolidusLabsExternal/tokensniffer-cli.git && pip install ../tokensniffer-cli/
+not_on_pypi: true
+authentication:
+  env: TOKENSNIFFER_API_KEY
+  also: passable as a command parameter
+commands:
+- command: tokensniffer get-usage
+  maps_to: GET /api/v2/usage
+  note: No OpenAPI fragment is published for this operation.
+- command: tokensniffer get-token --chain-id <id> --address <addr>
+  maps_to: get-token-results
+- command: tokensniffer list-scam-tokens
+  maps_to: get-malicious-tokens
+  plan: enterprise
+- command: tokensniffer get-address --address <addr>
+  maps_to: get-address-results
+- command: tokensniffer list-scam-addresses --chain-id <id>
+  maps_to: get-malicious-addresses
+  plan: enterprise
+python_modules:
+- tokensniffer.api (API client class)
+- tokensniffer.cli (command entry points)
+coverage_gap: The CLI predates the Pair API (March 2025) and the v3 Webhooks API (September 2025); it exposes 5 of
+  the 15 published operations and has not been pushed since 2023-09-18.
+note: The README warns that list-scam-addresses and list-scam-tokens are "not available in the subscription plans"
+  and directs users to sales — the CLI text is older than the current Enterprise Pack pricing page, which does include
+  those feeds.

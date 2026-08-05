@@ -1,0 +1,42 @@
+generated: '2026-08-05'
+method: searched
+source: https://tokensniffer.readme.io/reference/pricing
+api: TokenSniffer API
+rate_limits:
+- name: Requests per second
+  limit_count: 5
+  limit_period: second
+  scope: api-key
+  applies_to: all operations
+  breach_status: 429
+- name: Concurrent pending Get Token queries
+  limit_count: 5
+  limit_period: concurrent
+  scope: api-key
+  applies_to: get-token-results
+  breach_status: 429
+  note: At most five Get Token queries may hold "pending" status at the same time.
+- name: Unique token lookups per day (Sniffer Pack Pro)
+  limit_count: 500
+  limit_period: day
+  scope: api-key
+  plan: Sniffer Pack Pro
+  breach_status: 429
+- name: Unique token lookups per day (Enterprise Pack)
+  limit_count: 5000
+  limit_period: day
+  scope: api-key
+  plan: Enterprise Pack
+  breach_status: 429
+  note: Published as "5000+"; higher volumes are negotiated.
+- name: Webhook notification batch size
+  limit_count: 5000
+  limit_period: per-callback
+  scope: subscription
+  note: Each webhook POST may carry up to 5,000 events, flushed every 60 seconds.
+accounting: Only unique token requests count toward the daily limit; repeat lookups of the same token are free, and
+  requests returning a non-200 status are not counted.
+headers:
+  published: false
+  note: No RateLimit or X-RateLimit response headers are documented.
+quota_endpoint: GET https://tokensniffer.com/api/v2/usage → {limit, used}

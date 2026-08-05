@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for TokenSniffer Webhooks API
+  version: 1.0.0
+extends: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: solidus-labs
+    x-apievangelist-product: TokenSniffer
+    x-apievangelist-harvest: Assembled verbatim from provider-published OpenAPI 3.1.0 fragments on tokensniffer.readme.io
+    x-apievangelist-artifacts:
+      authentication: authentication/solidus-labs-authentication.yml
+      conventions: conventions/solidus-labs-conventions.yml
+      errors: errors/solidus-labs-problem-types.yml
+      rate_limits: rate-limits/solidus-labs-rate-limits.yml
+      plans: plans/solidus-labs-plans.yml
+      vocabulary: vocabulary/solidus-labs-exploit-types.yml
+      skills: skills/_index.yml
+- target: $.info
+  update:
+    x-agent-notes: 'API key travels in the apikey QUERY parameter, so it appears in URLs, proxy logs and browser
+      history. Provider guidance: server-side calls only. Rate limit 5 req/s; 429 on breach; only unique token lookups
+      count against the daily quota.'

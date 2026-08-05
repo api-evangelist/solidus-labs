@@ -1,0 +1,58 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://registry.npmjs.org/tokensniffer-widgets
+- https://github.com/SolidusLabsExternal/tokensniffer-widgets
+- https://github.com/SolidusLabsExternal/tokensniffer-cli
+- https://tokensniffer.readme.io/reference/api-integration
+packages:
+- language: javascript
+  registry: npm
+  name: tokensniffer-widgets
+  version: 0.0.10
+  url: https://www.npmjs.com/package/tokensniffer-widgets
+  install: npm install tokensniffer-widgets
+  official: true
+  license: MIT
+  author: Solidus Labs
+  repository: https://github.com/SolidusLabsExternal/tokensniffer-widgets
+  published: '2023-08-31'
+  description: React components to render results from the TokenSniffer API (ScoreBadge, SmellTestResults, Gauge).
+  note: Client-side rendering components — see components/solidus-labs-components.yml.
+- language: python
+  registry: null
+  name: tokensniffer
+  official: true
+  license: MIT
+  url: https://github.com/SolidusLabsExternal/tokensniffer-cli
+  install: pip install git+ssh://git@github.com/SolidusLabsExternal/tokensniffer-cli.git@tokensniffer-py
+  description: CLI and Python client modules for the TokenSniffer API (tokensniffer.api.API + tokensniffer CLI).
+  note: NOT ON PyPI — probed pypi.org/pypi/tokensniffer/json and /tokensniffer-cli/json, both 404. The repo README
+    says "PyPI packages may be released over time"; installation is git-only today, over SSH, which requires a GitHub
+    key. See cli/solidus-labs-cli.yml.
+registries_probed:
+- registry: npm
+  result: 1 first-party package
+- registry: PyPI
+  result: 404 for tokensniffer and tokensniffer-cli
+- registry: Maven Central
+  result: none
+- registry: NuGet
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: RubyGems
+  result: none
+- registry: Packagist
+  result: none
+- registry: crates.io
+  result: none
+github_organizations:
+- org: SolidusLabsExternal
+  url: https://github.com/SolidusLabsExternal
+  public_repos: 4
+  note: The org that actually carries first-party code.
+- org: Solidus-Labs
+  url: https://github.com/Solidus-Labs
+  public_repos: 0
+  note: The brand-name org exists but is empty.

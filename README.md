@@ -42,5 +42,34 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Solidus Labs is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/solidus-labs_stock/
+Solidus Labs is a crypto-native market-integrity and compliance technology company founded in 2018,
+headquartered in New York with offices in Tel Aviv and London. Its **HALO** platform is a unified
+compliance control hub spanning trade surveillance, transaction monitoring, stablecoin monitoring,
+token monitoring, execution quality, case management and agentic-AI workflows, used by regulated
+exchanges, broker-dealers, market makers, custodians, OTC desks, stablecoin issuers and regulators.
+
+- Website: https://www.soliduslabs.com/
+- Developer surface: https://www.soliduslabs.com/tokensniffer/api
+- API reference: https://tokensniffer.readme.io/
+
+## What is public
+
+The publicly documented developer surface is the **TokenSniffer API**, the programmatic face of the
+HALO Token Monitoring module — smart-contract scam detection, the TokenSniffer "Smell Test" 0-100
+risk score, malicious token / pair / deployer-address feeds across 15 chains, and a v3 webhook
+subscription API. The HALO platform itself is delivered to contracted customers through regional
+dashboards and is not publicly documented.
+
+| Artifact | What's here |
+|---|---|
+| `openapi/` | 5 OpenAPI 3.1.0 documents, 15 operations — assembled verbatim from the per-operation OpenAPI blocks Solidus Labs publishes on `tokensniffer.readme.io` |
+| `skills/` | The provider's **own** Agent Skill (`SKILL.md` + 6 references + evals), harvested verbatim from `github.com/SolidusLabsExternal/tokensniffer-skills` |
+| `llms/` | Both published `llms.txt` files — `soliduslabs.com` and `tokensniffer.readme.io` |
+| `asyncapi/` | Webhook event catalog (no AsyncAPI document is published) |
+| `vocabulary/` | The exploit typology, chain registry and event-type vocabularies |
+| `packages/`, `cli/`, `components/` | npm widget library, the Python CLI (git-only, not on PyPI) |
+| `plans/`, `rate-limits/`, `conventions/`, `errors/`, `lifecycle/`, `changelog/` | Pricing tiers, the 5 req/s limit, auth and pagination semantics, the status-code table, versioning |
+| `security/`, `well-known/`, `conformance/` | Probe results — including what is **absent**: no security.txt, no status page, no trust center, no agent card |
+
+Nothing in this repository was authored on the provider's behalf. Where a probe missed, the miss is
+recorded with the HTTP status it actually returned.

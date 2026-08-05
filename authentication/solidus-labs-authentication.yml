@@ -1,0 +1,19 @@
+generated: '2026-08-05'
+method: derived
+source: openapi/solidus-labs-tokensniffer-addresses-openapi.yml, openapi/solidus-labs-tokensniffer-pairs-openapi.yml,
+  openapi/solidus-labs-tokensniffer-tokens-openapi.yml, openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: sec0
+  type: apiKey
+  in: query
+  parameter: apikey
+  sources:
+  - openapi/solidus-labs-tokensniffer-addresses-openapi.yml
+  - openapi/solidus-labs-tokensniffer-pairs-openapi.yml
+  - openapi/solidus-labs-tokensniffer-tokens-openapi.yml
+  - openapi/solidus-labs-tokensniffer-webhooks-openapi.yml

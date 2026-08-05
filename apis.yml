@@ -1,23 +1,173 @@
 aid: solidus-labs
 name: Solidus Labs
-description: 'Solidus Labs is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Solidus Labs is a crypto-native market-integrity and compliance technology company founded in 2018 by former
+  Goldman Sachs engineers, headquartered in New York with offices in Tel Aviv and London. Its HALO platform is a
+  unified compliance control hub spanning eight modules — Trade Surveillance, Transaction Monitoring, Stablecoin
+  Monitoring, Token Monitoring, Execution Quality, Case Management, Agentic-AI Workflows and Professional Services —
+  used by regulated exchanges, broker-dealers, market makers, custodians, OTC desks, stablecoin issuers and
+  regulators across digital assets, derivatives, equities and fixed income. The publicly documented developer
+  surface is the TokenSniffer API, the programmatic face of Solidus Labs' Token Monitoring module: a key-authenticated
+  REST API over smart-contract scam detection, the TokenSniffer "Smell Test" risk score, malicious token/pair/address
+  feeds across 15+ chains, and a v3 webhook subscription API for real-time scam and rug-pull notifications. The HALO
+  platform itself is delivered to contracted customers through regional dashboards and is not publicly documented.
 url: https://raw.githubusercontent.com/api-evangelist/solidus-labs/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/5dc2e688a258f6237d614aa3/6a554a304e638b073bec090e_Logo%20Icon%20dark%20on%20yellow.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-enrichment:
+  date: '2026-08-05'
+  status: enriched
+  artifacts_added: 40
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-08-05'
 modified: '2026-08-05'
 tags:
 - Company
-apis: []
+- Compliance
+- RegTech
+- Trade Surveillance
+- Market Integrity
+- Transaction Monitoring
+- Digital Assets
+- Cryptocurrency
+- Blockchain
+- Token Security
+- Scam Detection
+- Smart Contracts
+- Anti-Money Laundering
+- Web3
+- DeFi
+apis:
+- name: TokenSniffer API
+  description: >-
+    The public REST API behind TokenSniffer, the token-security platform that powers Solidus Labs' HALO Token
+    Monitoring module. Analyzes token contract source code and bytecode against a database of 10,000+ scam code
+    patterns, returning token metadata, on-chain metrics (holders, liquidity, swap simulation, permissions) and
+    Smell Test results including a 0-100 token score and scam status. Enterprise tiers add 24-hour feeds of latest
+    and malicious tokens, trading pairs and deployer addresses, plus a v3 webhook subscription API for push
+    notifications on token creation, malicious flagging, liquidity creation and rug pulls. Authenticated with an
+    apikey query parameter; 5 requests/second; 500 (Pro) to 5,000+ (Enterprise) unique token lookups per day.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - token-security
+  - scam-detection
+  - smart-contract-analysis
+  - blockchain
+  - defi
+  - risk-scoring
+  properties:
+  - type: OpenAPI
+    name: TokenSniffer Token API (v2)
+    url: openapi/solidus-labs-tokensniffer-tokens-openapi.yml
+  - type: OpenAPI
+    name: TokenSniffer Address API (v2)
+    url: openapi/solidus-labs-tokensniffer-addresses-openapi.yml
+  - type: OpenAPI
+    name: TokenSniffer Pair API (v2)
+    url: openapi/solidus-labs-tokensniffer-pairs-openapi.yml
+  - type: OpenAPI
+    name: TokenSniffer Chain API (v2)
+    url: openapi/solidus-labs-tokensniffer-chains-openapi.yml
+  - type: OpenAPI
+    name: TokenSniffer Webhooks API (v3)
+    url: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
+  - type: Overlay
+    name: API Evangelist enhancements — Token API
+    url: overlays/solidus-labs-tokensniffer-tokens-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Address API
+    url: overlays/solidus-labs-tokensniffer-addresses-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Pair API
+    url: overlays/solidus-labs-tokensniffer-pairs-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Chain API
+    url: overlays/solidus-labs-tokensniffer-chains-overlay.yaml
+  - type: Overlay
+    name: API Evangelist enhancements — Webhooks API
+    url: overlays/solidus-labs-tokensniffer-webhooks-overlay.yaml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/solidus-labs-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/solidus-labs_stock/
+  url: https://www.soliduslabs.com/
+- type: DeveloperPortal
+  url: https://www.soliduslabs.com/tokensniffer/api
+- type: Documentation
+  url: https://tokensniffer.readme.io/
+- type: APIReference
+  url: https://tokensniffer.readme.io/reference
+- type: GettingStarted
+  url: https://tokensniffer.readme.io/reference/introduction
+- type: Support
+  url: https://www.soliduslabs.com/contact
+- type: Blog
+  url: https://www.soliduslabs.com/blog
+- type: GitHubOrganization
+  url: https://github.com/SolidusLabsExternal
+- type: Pricing
+  url: https://www.soliduslabs.com/tokensniffer/api
+- type: SignUp
+  url: https://www.soliduslabs.com/tokensniffer/api
+- type: Login
+  url: https://dashboard.prod-us-east-1.soliduslabs.app/auth/login
+- type: TermsOfService
+  url: https://www.soliduslabs.com/legal#terms-of-use
+- type: PrivacyPolicy
+  url: https://www.soliduslabs.com/legal#privacy-policy
+- type: Compliance
+  url: https://www.soliduslabs.com/clients/digital-assets
+- type: FAQ
+  url: https://tokensniffer.readme.io/reference/faq
+- type: Authentication
+  url: authentication/solidus-labs-authentication.yml
+- type: LLMsTxt
+  url: llms/solidus-labs-llms.txt
+- type: Conventions
+  url: conventions/solidus-labs-conventions.yml
+- type: ErrorCatalog
+  url: errors/solidus-labs-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/solidus-labs-lifecycle.yml
+- type: ChangeLog
+  url: changelog/solidus-labs-changelog.yml
+- type: RateLimits
+  url: rate-limits/solidus-labs-rate-limits.yml
+- type: Plans
+  url: plans/solidus-labs-plans.yml
+- type: Packages
+  url: packages/solidus-labs-packages.yml
+- type: SDKs
+  url: packages/solidus-labs-packages.yml
+- type: CLI
+  url: cli/solidus-labs-cli.yml
+- type: Components
+  url: components/solidus-labs-components.yml
+- type: Vocabulary
+  url: vocabulary/solidus-labs-exploit-types.yml
+- type: Conformance
+  url: conformance/solidus-labs-conformance.yml
+- type: Webhooks
+  url: asyncapi/solidus-labs-tokensniffer-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: MCPServer
+  url: mcp/solidus-labs-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/solidus-labs-tool-crosswalk.yml

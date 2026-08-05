@@ -1,0 +1,50 @@
+generated: '2026-08-05'
+method: searched
+source:
+- https://tokensniffer.readme.io/reference/api-response
+- openapi/*.yml (in-spec 400 responses)
+format: json-message
+rfc9457: false
+note: TokenSniffer publishes a flat HTTP status-code table, not RFC 9457 problem+json. The provider-published OpenAPI
+  fragments declare only 200 and 400 per operation; the 401/403/404/405/429/500 rows below come from the documented
+  status-code reference and are therefore real but absent from the machine-readable contract.
+problems:
+- status: 400
+  title: Bad request
+  detail: The request was rejected due to a missing or invalid parameter.
+  in_openapi: true
+  source_operation: all operations except get-supported-networks
+- status: 401
+  title: Unauthorized
+  detail: API key is missing or expired.
+  in_openapi: false
+  remediation: Supply the apikey query parameter; renew the subscription if the key has expired.
+- status: 403
+  title: Permission denied
+  detail: API key does not have permission to access the requested resource.
+  in_openapi: false
+  remediation: The operation is gated to a higher plan tier — see plans/solidus-labs-plans.yml. Enterprise-only feeds
+    return 403 on a Pro key.
+- status: 404
+  title: Not found
+  detail: Resource not found. If this status code is returned for a "Get Token" request on a new token then retry
+    the request after 1-2 minutes.
+  in_openapi: false
+  remediation: For get-token-results on a freshly deployed contract, back off 1-2 minutes and retry — analysis completes
+    within ~30 seconds of deployment but contract source may not be available yet.
+- status: 405
+  title: Method not allowed
+  detail: An unsupported method was specified.
+  in_openapi: false
+- status: 429
+  title: Rate limit exceeded
+  detail: Request limit for given API key was exceeded.
+  in_openapi: false
+  remediation: Stay under 5 requests/second and 5 concurrent pending get-token-results calls; check GET /api/v2/usage
+    for the daily quota position.
+  docs: https://tokensniffer.readme.io/reference/pricing#rate-limit
+- status: 500
+  title: Internal server error
+  detail: An internal error occurred, please contract support.
+  in_openapi: false
+  remediation: Contact support at https://tokensniffer.com/contact.

@@ -1,0 +1,47 @@
+generated: '2026-08-05'
+method: searched
+source: https://github.com/SolidusLabsExternal/tokensniffer-skills
+note: Solidus Labs PUBLISHES its own Agent Skill for the TokenSniffer API — a SKILL.md with YAML frontmatter, six
+  reference files and an evals set, in a public first-party GitHub repo (last pushed 2026-04-16). Saved verbatim;
+  API Evangelist generated nothing here.
+provider_published: true
+skills:
+- file: solidus-labs-tokensniffer-api.md
+  name: tokensniffer-api
+  description: Deep knowledge of the TokenSniffer REST API for token safety analysis, scam detection, and DeFi integration
+    — checking whether a token is a scam, integrating safety scores, interpreting Smell Test results and risk/exploit
+    flags, and setting up webhooks for scam alerts.
+  api: openapi/solidus-labs-tokensniffer-tokens-openapi.yml
+  operations:
+  - get-token-results
+  - get-address-results
+  - get-supported-networks
+  - list-latest-tokens
+  - get-malicious-tokens
+  - list-corrected-tokens
+  - getting-started-with-your-api
+  - list-malicious-pairs
+  - list-tokens-with-malicious-pairs
+  - get-malicious-addresses
+  - create-webhook
+  - list-webhooks
+  - get-webhook
+  - update-webhook
+  - delete-webhook
+  source: https://github.com/SolidusLabsExternal/tokensniffer-skills/blob/main/SKILL.md
+  method: searched
+  references:
+  - file: references/endpoints.md
+    covers: Every endpoint path, plan tier, parameters and response shape — including GET /api/v2/usage, which has
+      no published OpenAPI fragment.
+  - file: references/response-fields.md
+    covers: Full Get Token response field reference.
+  - file: references/smell-tests.md
+    covers: The Smell Test checks and how the 0-100 score is composed.
+  - file: references/exploit-types.md
+    covers: The exploit typology — mirrored in vocabulary/solidus-labs-exploit-types.yml.
+  - file: references/chains.md
+    covers: Supported chain ids and which chains support metrics/tests.
+  - file: references/webhooks.md
+    covers: v3 webhook subscription lifecycle, HMAC verification, batching and retries.
+  evals: solidus-labs-tokensniffer-evals.json
