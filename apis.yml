@@ -40,55 +40,124 @@ tags:
 - Web3
 - DeFi
 apis:
-- name: TokenSniffer API
-  description: >-
-    The public REST API behind TokenSniffer, the token-security platform that powers Solidus Labs' HALO Token
-    Monitoring module. Analyzes token contract source code and bytecode against a database of 10,000+ scam code
-    patterns, returning token metadata, on-chain metrics (holders, liquidity, swap simulation, permissions) and
-    Smell Test results including a 0-100 token score and scam status. Enterprise tiers add 24-hour feeds of latest
-    and malicious tokens, trading pairs and deployer addresses, plus a v3 webhook subscription API for push
-    notifications on token creation, malicious flagging, liquidity creation and rug pulls. Authenticated with an
-    apikey query parameter; 5 requests/second; 500 (Pro) to 5,000+ (Enterprise) unique token lookups per day.
+- aid: solidus-labs:solidus-labs-address-api-api
+  name: Solidus Labs Address API API
+  description: The Address API API from Solidus Labs — 1 operation(s) for address api.
   humanURL: https://tokensniffer.readme.io/
   baseURL: https://tokensniffer.com/api/v2
   tags:
-  - token-security
-  - scam-detection
-  - smart-contract-analysis
-  - blockchain
-  - defi
-  - risk-scoring
+  - Address API
   properties:
   - type: OpenAPI
-    name: TokenSniffer Token API (v2)
-    url: openapi/solidus-labs-tokensniffer-tokens-openapi.yml
+    url: openapi/solidus-labs-address-api-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-chain-api-api
+  name: Solidus Labs Chain API API
+  description: The Chain API API from Solidus Labs — 1 operation(s) for chain api.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Chain API
+  properties:
   - type: OpenAPI
-    name: TokenSniffer Address API (v2)
-    url: openapi/solidus-labs-tokensniffer-addresses-openapi.yml
+    url: openapi/solidus-labs-chain-api-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-corrections-api
+  name: Solidus Labs Corrections API
+  description: The Corrections API from Solidus Labs — 1 operation(s) for corrections.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Corrections
+  properties:
   - type: OpenAPI
-    name: TokenSniffer Pair API (v2)
-    url: openapi/solidus-labs-tokensniffer-pairs-openapi.yml
+    url: openapi/solidus-labs-corrections-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-latest-api
+  name: Solidus Labs Latest API
+  description: The Latest API from Solidus Labs — 1 operation(s) for latest.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Latest
+  properties:
   - type: OpenAPI
-    name: TokenSniffer Chain API (v2)
-    url: openapi/solidus-labs-tokensniffer-chains-openapi.yml
+    url: openapi/solidus-labs-latest-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-scams-api
+  name: Solidus Labs Scams API
+  description: The Scams API from Solidus Labs — 2 operation(s) for scams.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Scams
+  properties:
   - type: OpenAPI
-    name: TokenSniffer Webhooks API (v3)
-    url: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml
-  - type: Overlay
-    name: API Evangelist enhancements — Token API
-    url: overlays/solidus-labs-tokensniffer-tokens-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Address API
-    url: overlays/solidus-labs-tokensniffer-addresses-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Pair API
-    url: overlays/solidus-labs-tokensniffer-pairs-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Chain API
-    url: overlays/solidus-labs-tokensniffer-chains-overlay.yaml
-  - type: Overlay
-    name: API Evangelist enhancements — Webhooks API
-    url: overlays/solidus-labs-tokensniffer-webhooks-overlay.yaml
+    url: openapi/solidus-labs-scams-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-token-api-api
+  name: Solidus Labs Token API API
+  description: The Token API API from Solidus Labs — 1 operation(s) for token api.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Token API
+  properties:
+  - type: OpenAPI
+    url: openapi/solidus-labs-token-api-api-openapi.yml
+  - type: DataModel
+    url: data-model/solidus-labs-data-model.yml
+  - type: Examples
+    url: examples/solidus-labs-tokensniffer-examples.yml
+  - type: Documentation
+    url: https://tokensniffer.readme.io/
+  - type: APIReference
+    url: https://tokensniffer.readme.io/reference
+- aid: solidus-labs:solidus-labs-webhooks-api-api
+  name: Solidus Labs Webhooks API API
+  description: The Webhooks API API from Solidus Labs — 2 operation(s) for webhooks api.
+  humanURL: https://tokensniffer.readme.io/
+  baseURL: https://tokensniffer.com/api/v2
+  tags:
+  - Webhooks API
+  properties:
+  - type: OpenAPI
+    url: openapi/solidus-labs-webhooks-api-api-openapi.yml
   - type: DataModel
     url: data-model/solidus-labs-data-model.yml
   - type: Examples
@@ -103,6 +172,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/solidus-labs-tokensniffer-addresses-overlay.yaml
 - type: DomainSecurity
   url: security/solidus-labs-domain-security.yml
 - type: Website
