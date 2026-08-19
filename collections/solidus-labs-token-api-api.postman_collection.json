@@ -1,0 +1,287 @@
+{
+  "item": [
+    {
+      "id": "86ed2943-829c-41c9-b5b4-5e63a320c20f",
+      "name": "Token API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "97fe1e05-128e-47f4-8cd2-ec849bbb42ef",
+          "name": "Get Token",
+          "request": {
+            "name": "Get Token",
+            "description": {
+              "content": "Get token information, metrics, similar contracts, and Smell Test results including token score and scam status.  Available with the Pro and Enterprise plans.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain_id",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_metrics",
+                  "value": "false",
+                  "description": "Include on-chain metrics such as holders and liquidity (permissions, swap_simulation, balances, pools, score)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_tests",
+                  "value": "false",
+                  "description": "Include Smell Test results"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_similar",
+                  "value": "false",
+                  "description": "Include similar contracts results"
+                },
+                {
+                  "disabled": false,
+                  "key": "block_until_ready",
+                  "value": "false",
+                  "description": "Block response until status=\"ready\""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "chain_id",
+                  "description": "(Required) Chain identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) Token contract address"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Your assigned API key",
+                "key": "X-API-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06797ad1-7019-4b44-bded-edade3f06d31",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain_id",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_metrics",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_tests",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_similar",
+                      "value": "false"
+                    },
+                    {
+                      "key": "block_until_ready",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chain_id",
+                      "description": "(Required) Chain identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Token contract address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"OK\\\",\\n  \\\"status\\\": \\\"ready\\\",\\n  \\\"chain_id\\\": 56, \\n  \\\"address\\\": \\\"0x0671d181e36f207b22df910fb9d1f2d981a6d574\\\",\\n  \\\"name\\\": \\\"ChildDoge\\\",\\n  \\\"symbol\\\": \\\"ChildDoge\\\",\\n  \\\"total_supply\\\": 123,\\n  \\\"decimals\\\": 9,\\n  \\\"created_at\\\": 1624455637000,\\n  \\\"deployer_address\\\": \\\"0x123\\\",\\n  \\\"is_flagged\\\": true,\\n  \\\"exploits\\\": [\\n    \\\"honeypot\\\"\\n  ],\\n  \\\"contract\\\": {\\n      \\\"is_source_verified\\\": true,\\n      \\\"has_mint\\\": true,\\n      \\\"has_fee_modifier\\\": false,\\n      \\\"has_max_transaction_amount\\\": false,\\n      \\\"has_blocklist\\\": false,\\n      \\\"has_proxy\\\": false,\\n      \\\"has_pausable\\\": true\\n  }, \\n  \\\"permissions\\\": {\\n    \\\"owner_address\\\": \\\"0x0671d181e36f207b22df910fb9d1f2d981a6d574\\\",\\n    \\\"is_ownership_renounced\\\": false\\n  },\\n  \\\"swap_simulation\\\": {\\n    \\\"is_sellable\\\": true,\\n    \\\"buy_fee\\\": 1,\\n    \\\"sell_fee\\\": 0\\n  },\\n  \\\"balances\\\": {\\n    \\\"burn_balance\\\": 1234,\\n    \\\"lock_balance\\\": 1234,\\n    \\\"deployer_balance\\\": 1234,\\n    \\\"owner_balance\\\": 123,  \\n    \\\"top_holders\\\": [\\n      {\\n        \\\"address\\\": \\\"0x383a1d12a354b7cdbd95fc7a411b9a4e327c7058\\\",\\n        \\\"balance\\\": 71767430324769.23,\\n        \\\"is_contract\\\": false\\n      }\\n    ]\\n  },\\n  \\\"pools\\\": [\\n    {\\n      \\\"address\\\": \\\"0xe535e8b16fa51c45b8f36d9a07b11823522bca56\\\",\\n      \\\"name\\\": \\\"Uniswap v2\\\",\\n      \\\"base_address\\\": \\\"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\\\",\\n      \\\"base_symbol\\\": \\\"ETH\\\",\\n      \\\"total_supply\\\": 9472911695158690000000,\\n      \\\"decimals\\\": 18,\\n      \\\"base_reserve\\\": 5.004710819206843,\\n      \\\"owner_balance\\\": 0,\\n      \\\"deployer_balance\\\": 7401466896810723000,\\n      \\\"burn_balance\\\": 219973065873940400000,\\n      \\\"lock_balance\\\": 9245537162387938000000,\\n      \\\"locks\\\": [\\n        {\\n          \\\"address\\\": \\\"0xe2fe530c047f2d85298b07d9333c05737f1435fb\\\",\\n          \\\"name\\\": \\\"TrustSwap\\\",\\n          \\\"balance\\\": 9245537162387938000000,\\n          \\\"start_time\\\": 1673638451,\\n          \\\"end_time\\\": 1673638451\\n        }\\n      ],\\n      \\\"top_holders\\\": [\\n        {\\n          \\\"address\\\": \\\"0x383a1d12a354b7cdbd95fc7a411b9a4e327c7058\\\",\\n          \\\"balance\\\": 71767430324769.23,\\n          \\\"is_contract\\\": false\\n        }\\n      ]\\n    }\\n  ],\\n  \\\"tests\\\": [\\n    {\\n      \\\"id\\\": \\\"testForInadeqateLiquidityLockedOrBurned\\\",\\n      \\\"description\\\": \\\"At least 95% of liquidity locked/burned\\\",\\n      \\\"result\\\": false,\\n      \\\"value\\\": 9465510228261878000000,\\n      \\\"value_pct\\\": 0.9992186703375907\\n    }\\n  ],\\n  \\\"similar\\\": [\\n    \\\"chainId\\\": \\\"ETH\\\",\\n    \\\"address\\\": \\\"0x868d070fe968c3239de611867bbfb92233a09003\\\",\\n    \\\"score\\\": 99\\n  ],\\n  \\\"score\\\": 0, \\n  \\\"risk_level\\\": \\\"high\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8da4159d-1324-402b-bb42-ed48a83a5748",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain_id",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_metrics",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_tests",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_similar",
+                      "value": "false"
+                    },
+                    {
+                      "key": "block_until_ready",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chain_id",
+                      "description": "(Required) Chain identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Token contract address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  message: \\\"reason\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/tokens",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1b66d50-5a75-4b5d-a6ec-a4e1ebf641fa",
+    "name": "Token Token API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.\n\nContact Support:\n Name: TokenSniffer Support",
+      "type": "text/plain"
+    }
+  }
+}

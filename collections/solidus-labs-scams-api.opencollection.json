@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Solidus Labs Scams API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Malicious Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tokensniffer.com/api/v2/addresses/scams",
+            "headers": [
+              {
+                "name": "X-API-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chain_id",
+                "value": "",
+                "type": "query",
+                "description": "Chain identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results.  Defaults to 100."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip.  Defaults to 0."
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to tokens created/flagged before this time"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to tokens created/flagged after this time"
+              },
+              {
+                "name": "deployer_address",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to token contracts deployed by given address"
+              }
+            ]
+          },
+          "docs": "Get the addresses that deployed a known scam token in the last 24 hours.  Available with the Enterprise plan."
+        },
+        {
+          "info": {
+            "name": "List Tokens with Malicious Pairs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tokensniffer.com/api/v2/addresses/scams/tokens",
+            "headers": [
+              {
+                "name": "X-API-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chain_id",
+                "value": "",
+                "type": "query",
+                "description": "Chain identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results.  Defaults to 100 with a maximum of 5000."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip.  Defaults to 0."
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to tokens created after this time"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to tokens created before this time"
+              }
+            ]
+          },
+          "docs": "Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

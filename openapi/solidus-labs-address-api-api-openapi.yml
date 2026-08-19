@@ -1,0 +1,118 @@
+openapi: 3.2.0
+info:
+  title: Address Address API API
+  version: '2.0'
+  description: Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.
+  contact:
+    name: TokenSniffer Support
+    url: https://tokensniffer.com/contact
+  x-provider: Solidus Labs
+  x-product: TokenSniffer
+servers:
+- url: https://tokensniffer.com/api/v2/addresses
+security:
+- sec0: []
+tags:
+- name: Address API
+paths:
+  /{address}:
+    get:
+      summary: Get Address
+      description: Get scam tokens for address.  Available with the Pro and Enterprise plans.
+      operationId: get-address-results
+      parameters:
+      - name: address
+        in: path
+        description: Contract address or EOA
+        schema:
+          type: string
+        required: true
+      - name: X-API-Key
+        in: header
+        description: Your assigned API key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"OK\",\n  \"malicious_contracts_count\": 1,\n  \"categories\": [\n    {\n      \"name\": \"scam contract\",\n      \"types\": [\n        \"blacklist\",\n        \"hidden ownership\",\n        \"honeypot\"\n      ],\n      \"count\": 1\n    }\n  ],\n  \"contracts\": [\n    {\n      \"chainId\": 1,\n      \"address\": \"0x...\",\n      \"types\": [\n        \"honeypot\"\n      ]\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: OK
+                  malicious_contracts_count:
+                    type: integer
+                    example: 1
+                    default: 0
+                  categories:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: scam contract
+                        types:
+                          type: array
+                          items:
+                            type: string
+                            example: blacklist
+                        count:
+                          type: integer
+                          example: 1
+                          default: 0
+                  contracts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        chainId:
+                          type: integer
+                          example: 1
+                          default: 0
+                        address:
+                          type: string
+                          example: 0x...
+                        types:
+                          type: array
+                          items:
+                            type: string
+                            example: honeypot
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"reason\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: reason
+      deprecated: false
+      security: []
+      x-source-doc: https://tokensniffer.readme.io/reference/get-address-results
+      tags:
+      - Address API
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: query
+      name: apikey
+x-evidence:
+  fetched: '2026-08-05'
+  method: searched
+  sources:
+  - https://tokensniffer.readme.io/reference/get-address-results
+  - https://tokensniffer.readme.io/reference/get-malicious-addresses
+  note: Each source page embeds a "# OpenAPI definition" JSON block authored by the provider in ReadMe; those blocks were parsed and merged by shared info.title + servers[].url. Nothing added.

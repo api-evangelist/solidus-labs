@@ -1,0 +1,105 @@
+{
+  "item": [
+    {
+      "id": "ce3cb0c2-db26-4209-a33b-06cddde7ff53",
+      "name": "Chain API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3276327-7be4-4ee4-9408-bbb4d51a236d",
+          "name": "List Supported Chains",
+          "request": {
+            "name": "List Supported Chains",
+            "description": {
+              "content": "Get a list of supported blockchains including chain IDs.  API key not required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dba46500-3b56-4624-86f6-8882623dd0ae",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"total\\\": 12,\\n  \\\"result\\\": [\\n    {\\n      \\\"id\\\": 1,\\n      \\\"name\\\": \\\"Ethereum\\\",\\n      \\\"alias\\\": \\\"eth\\\"\\n    },\\n    {\\n      \\\"id\\\": 10,\\n      \\\"name\\\": \\\"Optimism\\\",\\n      \\\"alias\\\": \\\"opt\\\"\\n    },\\n    {\\n      \\\"id\\\": 25,\\n      \\\"name\\\": \\\"Cronos\\\",\\n      \\\"alias\\\": \\\"cronos\\\"\\n    },\\n    {\\n      \\\"id\\\": 56,\\n      \\\"name\\\": \\\"BNB Smart Chain\\\",\\n      \\\"alias\\\": \\\"bsc\\\"\\n    },\\n    {\\n      \\\"id\\\": 100,\\n      \\\"name\\\": \\\"Gnosis\\\",\\n      \\\"alias\\\": \\\"xdai\\\"\\n    },\\n    {\\n      \\\"id\\\": 137,\\n      \\\"name\\\": \\\"Polygon\\\",\\n      \\\"alias\\\": \\\"poly\\\"\\n    },\\n    {\\n      \\\"id\\\": 250,\\n      \\\"name\\\": \\\"Fantom\\\",\\n      \\\"alias\\\": \\\"ftm\\\"\\n    },\\n    {\\n      \\\"id\\\": 321,\\n      \\\"name\\\": \\\"KuCoin Community Chain\\\",\\n      \\\"alias\\\": \\\"kcc\\\"\\n    },\\n    {\\n      \\\"id\\\": 42161,\\n      \\\"name\\\": \\\"Arbitrum\\\",\\n      \\\"alias\\\": \\\"arb\\\"\\n    },\\n    {\\n      \\\"id\\\": 42262,\\n      \\\"name\\\": \\\"Oasis\\\",\\n      \\\"alias\\\": \\\"oasis\\\"\\n    },\\n    {\\n      \\\"id\\\": 43114,\\n      \\\"name\\\": \\\"Avalanche\\\",\\n      \\\"alias\\\": \\\"avax\\\"\\n    },\\n    {\\n      \\\"id\\\": 1666600000,\\n      \\\"name\\\": \\\"Harmony\\\",\\n      \\\"alias\\\": \\\"harmony\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/chains",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "9938acf7-f86e-4302-9855-ca83c67a5ea9",
+    "name": "Chain Chain API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.\n\nContact Support:\n Name: TokenSniffer Support",
+      "type": "text/plain"
+    }
+  }
+}

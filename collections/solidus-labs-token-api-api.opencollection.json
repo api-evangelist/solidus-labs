@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Token Token API API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tokensniffer.com/api/v2/tokens/:chain_id/:address",
+            "headers": [
+              {
+                "name": "X-API-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chain_id",
+                "value": "",
+                "type": "path",
+                "description": "Chain identifier"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Token contract address"
+              },
+              {
+                "name": "include_metrics",
+                "value": "",
+                "type": "query",
+                "description": "Include on-chain metrics such as holders and liquidity (permissions, swap_simulation, balances, pools, score)"
+              },
+              {
+                "name": "include_tests",
+                "value": "",
+                "type": "query",
+                "description": "Include Smell Test results"
+              },
+              {
+                "name": "include_similar",
+                "value": "",
+                "type": "query",
+                "description": "Include similar contracts results"
+              },
+              {
+                "name": "block_until_ready",
+                "value": "",
+                "type": "query",
+                "description": "Block response until status=\"ready\""
+              }
+            ]
+          },
+          "docs": "Get token information, metrics, similar contracts, and Smell Test results including token score and scam status.  Available with the Pro and Enterprise plans."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

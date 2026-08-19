@@ -1,0 +1,239 @@
+openapi: 3.2.0
+info:
+  title: Solidus Labs Scams API
+  version: '2.0'
+  contact:
+    name: TokenSniffer Support
+    url: https://tokensniffer.com/contact
+  description: 'Operations tagged Scams across 3 of this provider''s published API definitions: solidus-labs-tokensniffer-addresses-openapi.yml, solidus-labs-tokensniffer-pairs-openapi.yml, solidus-labs-tokensniffer-tokens-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://tokensniffer.com/api/v2/addresses
+- url: https://tokensniffer.com/api/v2/pairs
+- url: https://tokensniffer.com/api/v2/tokens
+security:
+- sec0: []
+tags:
+- name: Scams
+paths:
+  /scams:
+    servers:
+    - url: https://tokensniffer.com/api/v2/addresses
+    get:
+      summary: List Malicious Addresses
+      description: Get the addresses that deployed a known scam token in the last 24 hours.  Available with the Enterprise plan.
+      operationId: get-malicious-addresses
+      parameters:
+      - name: chain_id
+        in: query
+        description: Chain identifier
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of results.  Defaults to 100.
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of results to skip.  Defaults to 0.
+        schema:
+          type: integer
+          format: int32
+      - name: start_time
+        in: query
+        description: Restrict results to tokens created/flagged before this time
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: Restrict results to tokens created/flagged after this time
+        schema:
+          type: string
+      - name: deployer_address
+        in: query
+        description: Restrict results to token contracts deployed by given address
+        schema:
+          type: string
+      - name: X-API-Key
+        in: header
+        description: Your assigned API key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"OK\",\n  \"total\": 123,\n  \"result\": [\n    {\n      \"deployer_address\": \"0xffedc81da4270a378980b9936d27d488f8523a28\",\n      \"flagged_contracts_count\": 1,\n      \"reasons\": [\n        \"malicious contract\"\n      ]\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: OK
+                  total:
+                    type: integer
+                    example: 123
+                    default: 0
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        deployer_address:
+                          type: string
+                          example: '0xffedc81da4270a378980b9936d27d488f8523a28'
+                        flagged_contracts_count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        reasons:
+                          type: array
+                          items:
+                            type: string
+                            example: malicious contract
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"reason\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: reason
+      deprecated: false
+      security: []
+      x-source-doc: https://tokensniffer.readme.io/reference/get-malicious-addresses
+      tags:
+      - Scams
+  /scams/tokens:
+    servers:
+    - url: https://tokensniffer.com/api/v2/pairs
+    get:
+      summary: List Tokens with Malicious Pairs
+      description: Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan.
+      operationId: list-tokens-with-malicious-pairs
+      parameters:
+      - name: chain_id
+        in: query
+        description: Chain identifier
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of results.  Defaults to 100 with a maximum of 5000.
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: offset
+        in: query
+        description: Number of results to skip.  Defaults to 0.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: start_time
+        in: query
+        description: Restrict results to tokens created after this time
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: Restrict results to tokens created before this time
+        schema:
+          type: string
+      - name: X-API-Key
+        in: header
+        description: Your assigned API key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": \"OK\",\n  \"total\": 1357,\n  \"result\": [\n    {\n      \"address\": \"0x953e5cb1e053b3158166935aff287ffc7cf5984c\",\n      \"name\": \"AIBRAIN\",\n      \"symbol\": \"AIBRAIN\",\n      \"chain_id\": \"56\",\n      \"rugpulls\": [\n        {\n          \"category\": \"swap\",\n          \"timestamp\": \"2025-04-04T21:06:06.000Z\",\n          \"tx_hash\": \"0x3e7a79a5fe81499236f3dc8337004d68fcc5cc38cb2177ae481c0f9839ca0a08\"\n        }\n      ]\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: OK
+                  total:
+                    type: integer
+                    example: 1357
+                    default: 0
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        address:
+                          type: string
+                          example: '0x953e5cb1e053b3158166935aff287ffc7cf5984c'
+                        name:
+                          type: string
+                          example: AIBRAIN
+                        symbol:
+                          type: string
+                          example: AIBRAIN
+                        chain_id:
+                          type: string
+                          example: '56'
+                        rugpulls:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              category:
+                                type: string
+                                example: swap
+                              timestamp:
+                                type: string
+                                example: '2025-04-04T21:06:06.000Z'
+                              tx_hash:
+                                type: string
+                                example: '0x3e7a79a5fe81499236f3dc8337004d68fcc5cc38cb2177ae481c0f9839ca0a08'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-source-doc: https://tokensniffer.readme.io/reference/list-tokens-with-malicious-pairs
+      tags:
+      - Scams
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: query
+      name: apikey
+x-refined-from:
+- solidus-labs-tokensniffer-addresses-openapi.yml
+- solidus-labs-tokensniffer-pairs-openapi.yml
+- solidus-labs-tokensniffer-tokens-openapi.yml
+x-evidence:
+  fetched: '2026-08-05'
+  method: searched
+  sources:
+  - https://tokensniffer.readme.io/reference/get-address-results
+  - https://tokensniffer.readme.io/reference/get-malicious-addresses
+  note: Each source page embeds a "# OpenAPI definition" JSON block authored by the provider in ReadMe; those blocks were parsed and merged by shared info.title + servers[].url. Nothing added.

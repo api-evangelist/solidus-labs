@@ -1,0 +1,35 @@
+{
+  "provider": "solidus-labs",
+  "sources": [
+    "solidus-labs-address-api-api-openapi.yml",
+    "solidus-labs-chain-api-api-openapi.yml",
+    "solidus-labs-corrections-api-openapi.yml",
+    "solidus-labs-latest-api-openapi.yml",
+    "solidus-labs-scams-api-openapi.yml",
+    "solidus-labs-token-api-api-openapi.yml",
+    "solidus-labs-webhooks-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "solidus-labs-address-api-api-openapi.yml",
+    "solidus-labs-chain-api-api-openapi.yml",
+    "solidus-labs-corrections-api-openapi.yml",
+    "solidus-labs-latest-api-openapi.yml",
+    "solidus-labs-scams-api-openapi.yml",
+    "solidus-labs-token-api-api-openapi.yml",
+    "solidus-labs-webhooks-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "solidus-labs-address-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-chain-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-corrections-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-latest-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-scams-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-token-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solidus-labs-webhooks-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

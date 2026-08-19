@@ -1,0 +1,484 @@
+{
+  "item": [
+    {
+      "id": "d1b95755-988e-4a41-bed5-05bea708b4b6",
+      "name": "Scams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67ca9fd4-71c3-4e65-9572-2e3bb6310587",
+          "name": "List Malicious Addresses",
+          "request": {
+            "name": "List Malicious Addresses",
+            "description": {
+              "content": "Get the addresses that deployed a known scam token in the last 24 hours.  Available with the Enterprise plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scams"
+              ],
+              "host": [
+                "{{scams-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain_id",
+                  "value": "<string>",
+                  "description": "Chain identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results.  Defaults to 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Number of results to skip.  Defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created/flagged before this time"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created/flagged after this time"
+                },
+                {
+                  "disabled": false,
+                  "key": "deployer_address",
+                  "value": "<string>",
+                  "description": "Restrict results to token contracts deployed by given address"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Your assigned API key",
+                "key": "X-API-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1da116f-db6b-4d34-bc8d-6c0836a59582",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scams"
+                  ],
+                  "host": [
+                    "{{scams-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deployer_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"OK\\\",\\n  \\\"total\\\": 123,\\n  \\\"result\\\": [\\n    {\\n      \\\"deployer_address\\\": \\\"0xffedc81da4270a378980b9936d27d488f8523a28\\\",\\n      \\\"flagged_contracts_count\\\": 1,\\n      \\\"reasons\\\": [\\n        \\\"malicious contract\\\"\\n      ]\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e82ba1c7-c3b4-4887-9033-dda6ce328918",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scams"
+                  ],
+                  "host": [
+                    "{{scams-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deployer_address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"reason\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ee524bd-10c2-4bf6-a83d-9777399d7d47",
+          "name": "List Tokens with Malicious Pairs",
+          "request": {
+            "name": "List Tokens with Malicious Pairs",
+            "description": {
+              "content": "Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scams",
+                "tokens"
+              ],
+              "host": [
+                "{{scams-tokens-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain_id",
+                  "value": "<string>",
+                  "description": "Chain identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results.  Defaults to 100 with a maximum of 5000."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip.  Defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created after this time"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created before this time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Your assigned API key",
+                "key": "X-API-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fef2a6c-f6de-49c3-a24f-23c83e1c2869",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scams",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{scams-tokens-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"OK\\\",\\n  \\\"total\\\": 1357,\\n  \\\"result\\\": [\\n    {\\n      \\\"address\\\": \\\"0x953e5cb1e053b3158166935aff287ffc7cf5984c\\\",\\n      \\\"name\\\": \\\"AIBRAIN\\\",\\n      \\\"symbol\\\": \\\"AIBRAIN\\\",\\n      \\\"chain_id\\\": \\\"56\\\",\\n      \\\"rugpulls\\\": [\\n        {\\n          \\\"category\\\": \\\"swap\\\",\\n          \\\"timestamp\\\": \\\"2025-04-04T21:06:06.000Z\\\",\\n          \\\"tx_hash\\\": \\\"0x3e7a79a5fe81499236f3dc8337004d68fcc5cc38cb2177ae481c0f9839ca0a08\\\"\\n        }\\n      ]\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14ea73e4-1dca-4247-840a-efd128a6f5ca",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scams",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{scams-tokens-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/addresses",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/addresses",
+      "key": "scams-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/pairs",
+      "key": "scams-tokens-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10197c72-fcf7-4dde-a04d-3010705eeceb",
+    "name": "Solidus Labs Scams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Operations tagged Scams across 3 of this provider's published API definitions: solidus-labs-tokensniffer-addresses-openapi.yml, solidus-labs-tokensniffer-pairs-openapi.yml, solidus-labs-tokensniffer-tokens-openapi.yml. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: TokenSniffer Support",
+      "type": "text/plain"
+    }
+  }
+}

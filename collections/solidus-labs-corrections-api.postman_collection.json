@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "29bee851-9248-4f05-bdfd-8005aa856d50",
+      "name": "Corrections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a808c61-6f0a-4052-a64c-58d308d6bf3d",
+          "name": "List Corrected Tokens",
+          "request": {
+            "name": "List Corrected Tokens",
+            "description": {
+              "content": "Get the tokens which were un-flagged in the last 24 hours.  Available with the Enterprise plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "corrections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain_id",
+                  "value": "<string>",
+                  "description": "Chain identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results.  Defaults to 100 with a maximum of 5000."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip.  Defaults to 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created/flagged after this time."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<string>",
+                  "description": "Restrict results to tokens created/flagged before this time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Your assigned API key",
+                "key": "X-API-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5efaf32f-d63d-4ec2-83c1-fab515472f87",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "corrections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"message\\\": \\\"OK\\\",\\n  \\\"total\\\": 36,\\n  \\\"result\\\": [\\n    {\\n      \\\"chain_id\\\": \\\"1\\\",\\n      \\\"address\\\": \\\"0xf86f074d2230a2961499e7a7101cea291978d23f\\\",\\n      \\\"deployer_addr\\\": \\\"0xba059c8bebeeda8f000267b7ff066fe0595b3fd2\\\",\\n      \\\"name\\\": \\\"SHIBA INU CHAIN\\\",\\n      \\\"symbol\\\": \\\"SINU\\\",\\n      \\\"created_at\\\": \\\"2023-03-05T18:22:35.000Z\\\",\\n      \\\"unflagged_at\\\": \\\"2025-04-04T20:02:09.144Z\\\",\\n      \\\"is_source_verified\\\": true\\n    }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8cf4c0c-9dd8-49c7-befc-6ec4f452dd8e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "corrections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Your assigned API key",
+                    "key": "X-API-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tokensniffer.com/api/v2/tokens",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c2f703ca-aa97-4dfc-9953-7700f5acab23",
+    "name": "Token Corrections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.\n\nContact Support:\n Name: TokenSniffer Support",
+      "type": "text/plain"
+    }
+  }
+}

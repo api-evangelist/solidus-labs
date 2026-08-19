@@ -1,0 +1,63 @@
+openapi: 3.2.0
+info:
+  title: Chain Chain API API
+  version: '2.0'
+  description: Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.
+  contact:
+    name: TokenSniffer Support
+    url: https://tokensniffer.com/contact
+  x-provider: Solidus Labs
+  x-product: TokenSniffer
+servers:
+- url: https://tokensniffer.com/api/v2/chains
+security:
+- {}
+tags:
+- name: Chain API
+paths:
+  /:
+    get:
+      summary: List Supported Chains
+      description: Get a list of supported blockchains including chain IDs.  API key not required.
+      operationId: get-supported-networks
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"total\": 12,\n  \"result\": [\n    {\n      \"id\": 1,\n      \"name\": \"Ethereum\",\n      \"alias\": \"eth\"\n    },\n    {\n      \"id\": 10,\n      \"name\": \"Optimism\",\n      \"alias\": \"opt\"\n    },\n    {\n      \"id\": 25,\n      \"name\": \"Cronos\",\n      \"alias\": \"cronos\"\n    },\n    {\n      \"id\": 56,\n      \"name\": \"BNB Smart Chain\",\n      \"alias\": \"bsc\"\n    },\n    {\n      \"id\": 100,\n      \"name\": \"Gnosis\",\n      \"alias\": \"xdai\"\n    },\n    {\n      \"id\": 137,\n      \"name\": \"Polygon\",\n      \"alias\": \"poly\"\n    },\n    {\n      \"id\": 250,\n      \"name\": \"Fantom\",\n      \"alias\": \"ftm\"\n    },\n    {\n      \"id\": 321,\n      \"name\": \"KuCoin Community Chain\",\n      \"alias\": \"kcc\"\n    },\n    {\n      \"id\": 42161,\n      \"name\": \"Arbitrum\",\n      \"alias\": \"arb\"\n    },\n    {\n      \"id\": 42262,\n      \"name\": \"Oasis\",\n      \"alias\": \"oasis\"\n    },\n    {\n      \"id\": 43114,\n      \"name\": \"Avalanche\",\n      \"alias\": \"avax\"\n    },\n    {\n      \"id\": 1666600000,\n      \"name\": \"Harmony\",\n      \"alias\": \"harmony\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 12
+                    default: 0
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                          default: 0
+                        name:
+                          type: string
+                          example: Ethereum
+                        alias:
+                          type: string
+                          example: eth
+      deprecated: false
+      security: []
+      x-source-doc: https://tokensniffer.readme.io/reference/get-supported-networks
+      tags:
+      - Chain API
+x-evidence:
+  fetched: '2026-08-05'
+  method: searched
+  sources:
+  - https://tokensniffer.readme.io/reference/get-supported-networks
+  note: Each source page embeds a "# OpenAPI definition" JSON block authored by the provider in ReadMe; those blocks were parsed and merged by shared info.title + servers[].url. Nothing added.

@@ -2,14 +2,15 @@ generated: '2026-08-05'
 method: derived
 status: candidate
 source: openapi/*.yml
-note: 'Solidus Labs publishes NO MCP server. Searched the TokenSniffer docs and llms.txt, the soliduslabs.com llms.txt,
-  the SolidusLabsExternal GitHub org (4 repos: tokensniffer-widgets, tokensniffer-cli, tokensniffer-skills, forta-solidus-bot),
-  npm, and the public MCP registries — nothing exists, and no /mcp or /sse endpoint answered on any Solidus Labs or
-  TokenSniffer host. The tools below are a CANDIDATE surface derived one-per-operation from the provider-published
-  OpenAPI; each tool inherits its real input schema from the named operation. This is a proposal, not a provider claim.'
-provider_signal: 'Solidus Labs does ship an agent surface: an official Agent Skill (SKILL.md + six reference files
-  + evals) at github.com/SolidusLabsExternal/tokensniffer-skills, harvested to skills/. It ships agent instructions,
-  not an MCP server.'
+note: 'Solidus Labs publishes NO MCP server. Searched the TokenSniffer docs and llms.txt, the soliduslabs.com
+  llms.txt, the SolidusLabsExternal GitHub org (4 repos: tokensniffer-widgets, tokensniffer-cli, tokensniffer-skills,
+  forta-solidus-bot), npm, and the public MCP registries — nothing exists, and no /mcp or /sse endpoint
+  answered on any Solidus Labs or TokenSniffer host. The tools below are a CANDIDATE surface derived one-per-operation
+  from the provider-published OpenAPI; each tool inherits its real input schema from the named operation.
+  This is a proposal, not a provider claim.'
+provider_signal: 'Solidus Labs does ship an agent surface: an official Agent Skill (SKILL.md + six reference
+  files + evals) at github.com/SolidusLabsExternal/tokensniffer-skills, harvested to skills/. It ships
+  agent instructions, not an MCP server.'
 server:
   name: tokensniffer
   transport: http
@@ -21,8 +22,8 @@ auth:
     in: query
     parameter: apikey
     env: TOKENSNIFFER_API_KEY
-    warning: 'A query-string key is a poor fit for an MCP host: it lands in URLs and logs. An MCP wrapper should hold
-      the key server-side and never surface it as a tool argument.'
+    warning: 'A query-string key is a poor fit for an MCP host: it lands in URLs and logs. An MCP wrapper
+      should hold the key server-side and never surface it as a tool argument.'
 tool_count: 15
 tools:
 - name: list_malicious_addresses
@@ -115,3 +116,9 @@ tools:
   source_operation: openapi/solidus-labs-tokensniffer-webhooks-openapi.yml#update-webhook
   http: PATCH https://tokensniffer.com/api/v3/webhooks/{subscription_id}
   read_only: false
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census
