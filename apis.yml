@@ -12,6 +12,18 @@ description: >-
   feeds across 15+ chains, and a v3 webhook subscription API for real-time scam and rug-pull notifications. The HALO
   platform itself is delivered to contracted customers through regional dashboards and is not publicly documented.
 url: https://raw.githubusercontent.com/api-evangelist/solidus-labs/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/5dc2e688a258f6237d614aa3/6a554a304e638b073bec090e_Logo%20Icon%20dark%20on%20yellow.png
 x-type: company
 x-source: harvest:secondary-market
