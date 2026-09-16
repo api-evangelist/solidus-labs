@@ -85,24 +85,6 @@ apis:
     url: https://tokensniffer.readme.io/
   - type: APIReference
     url: https://tokensniffer.readme.io/reference
-- aid: solidus-labs:solidus-labs-chain-api-api
-  name: Solidus Labs Chain API
-  description: The Chain API API from Solidus Labs — 1 operation(s) for chain api.
-  humanURL: https://tokensniffer.readme.io/
-  baseURL: https://tokensniffer.com/api/v2
-  tags:
-  - Chain API
-  properties:
-  - type: OpenAPI
-    url: openapi/solidus-labs-chain-api-api-openapi.yml
-  - type: DataModel
-    url: data-model/solidus-labs-data-model.yml
-  - type: Examples
-    url: examples/solidus-labs-tokensniffer-examples.yml
-  - type: Documentation
-    url: https://tokensniffer.readme.io/
-  - type: APIReference
-    url: https://tokensniffer.readme.io/reference
 - aid: solidus-labs:solidus-labs-corrections-api
   name: Solidus Labs Corrections API
   description: The Corrections API from Solidus Labs — 1 operation(s) for corrections.
