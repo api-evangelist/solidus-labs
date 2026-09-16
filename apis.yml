@@ -1,16 +1,16 @@
 aid: solidus-labs
 name: Solidus Labs
-description: >-
-  Solidus Labs is a crypto-native market-integrity and compliance technology company founded in 2018 by former
-  Goldman Sachs engineers, headquartered in New York with offices in Tel Aviv and London. Its HALO platform is a
-  unified compliance control hub spanning eight modules — Trade Surveillance, Transaction Monitoring, Stablecoin
-  Monitoring, Token Monitoring, Execution Quality, Case Management, Agentic-AI Workflows and Professional Services —
-  used by regulated exchanges, broker-dealers, market makers, custodians, OTC desks, stablecoin issuers and
-  regulators across digital assets, derivatives, equities and fixed income. The publicly documented developer
-  surface is the TokenSniffer API, the programmatic face of Solidus Labs' Token Monitoring module: a key-authenticated
-  REST API over smart-contract scam detection, the TokenSniffer "Smell Test" risk score, malicious token/pair/address
-  feeds across 15+ chains, and a v3 webhook subscription API for real-time scam and rug-pull notifications. The HALO
-  platform itself is delivered to contracted customers through regional dashboards and is not publicly documented.
+description: 'Solidus Labs is a crypto-native market-integrity and compliance technology company founded
+  in 2018 by former Goldman Sachs engineers, headquartered in New York with offices in Tel Aviv and London.
+  Its HALO platform is a unified compliance control hub spanning eight modules — Trade Surveillance, Transaction
+  Monitoring, Stablecoin Monitoring, Token Monitoring, Execution Quality, Case Management, Agentic-AI
+  Workflows and Professional Services — used by regulated exchanges, broker-dealers, market makers, custodians,
+  OTC desks, stablecoin issuers and regulators across digital assets, derivatives, equities and fixed
+  income. The publicly documented developer surface is the TokenSniffer API, the programmatic face of
+  Solidus Labs'' Token Monitoring module: a key-authenticated REST API over smart-contract scam detection,
+  the TokenSniffer "Smell Test" risk score, malicious token/pair/address feeds across 15+ chains, and
+  a v3 webhook subscription API for real-time scam and rug-pull notifications. The HALO platform itself
+  is delivered to contracted customers through regional dashboards and is not publicly documented.'
 url: https://raw.githubusercontent.com/api-evangelist/solidus-labs/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -49,7 +49,7 @@ x-enrichment:
   pass: local-v1
 specificationVersion: '0.23'
 created: '2026-08-05'
-modified: '2026-08-05'
+modified: '2026-09-16'
 tags:
 - Company
 - Compliance
@@ -68,7 +68,7 @@ tags:
 - DeFi
 apis:
 - aid: solidus-labs:solidus-labs-address-api-api
-  name: Solidus Labs Address API API
+  name: Solidus Labs Address API
   description: The Address API API from Solidus Labs — 1 operation(s) for address api.
   humanURL: https://tokensniffer.readme.io/
   baseURL: https://tokensniffer.com/api/v2
@@ -86,7 +86,7 @@ apis:
   - type: APIReference
     url: https://tokensniffer.readme.io/reference
 - aid: solidus-labs:solidus-labs-chain-api-api
-  name: Solidus Labs Chain API API
+  name: Solidus Labs Chain API
   description: The Chain API API from Solidus Labs — 1 operation(s) for chain api.
   humanURL: https://tokensniffer.readme.io/
   baseURL: https://tokensniffer.com/api/v2
@@ -158,7 +158,7 @@ apis:
   - type: APIReference
     url: https://tokensniffer.readme.io/reference
 - aid: solidus-labs:solidus-labs-token-api-api
-  name: Solidus Labs Token API API
+  name: Solidus Labs Token API
   description: The Token API API from Solidus Labs — 1 operation(s) for token api.
   humanURL: https://tokensniffer.readme.io/
   baseURL: https://tokensniffer.com/api/v2
@@ -176,7 +176,7 @@ apis:
   - type: APIReference
     url: https://tokensniffer.readme.io/reference
 - aid: solidus-labs:solidus-labs-webhooks-api-api
-  name: Solidus Labs Webhooks API API
+  name: Solidus Labs Webhooks API
   description: The Webhooks API API from Solidus Labs — 2 operation(s) for webhooks api.
   humanURL: https://tokensniffer.readme.io/
   baseURL: https://tokensniffer.com/api/v2
@@ -267,6 +267,9 @@ common:
   url: skills/_index.yml
 - type: X-MCPServerCandidate
   url: mcp/solidus-labs-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: ToolCrosswalk
   url: mcp/solidus-labs-tool-crosswalk.yml
