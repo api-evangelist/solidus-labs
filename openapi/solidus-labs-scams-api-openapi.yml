@@ -5,6 +5,8 @@ info:
   contact:
     name: TokenSniffer Support
     url: https://tokensniffer.com/contact
+  x-product: TokenSniffer
+  x-provider: Solidus Labs
   description: 'Operations tagged Scams across 3 of this provider''s published API definitions: solidus-labs-tokensniffer-addresses-openapi.yml, solidus-labs-tokensniffer-pairs-openapi.yml, solidus-labs-tokensniffer-tokens-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://tokensniffer.com/api/v2/addresses
@@ -16,11 +18,9 @@ tags:
 - name: Scams
 paths:
   /scams:
-    servers:
-    - url: https://tokensniffer.com/api/v2/addresses
     get:
       summary: List Malicious Addresses
-      description: Get the addresses that deployed a known scam token in the last 24 hours.  Available with the Enterprise plan.
+      description: Get the addresses that deployed a known scam token in the last 24 hours. Available with the Enterprise plan.
       operationId: get-malicious-addresses
       parameters:
       - name: chain_id
@@ -114,12 +114,12 @@ paths:
       x-source-doc: https://tokensniffer.readme.io/reference/get-malicious-addresses
       tags:
       - Scams
-  /scams/tokens:
     servers:
-    - url: https://tokensniffer.com/api/v2/pairs
+    - url: https://tokensniffer.com/api/v2/addresses
+  /scams/tokens:
     get:
       summary: List Tokens with Malicious Pairs
-      description: Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours.  Available with the Enterprise plan.
+      description: Get the tokens (excluding the quote token such as ETH, BNB, etc) for trading pairs which have been rugpulled in the last 24 hours. Available with the Enterprise plan.
       operationId: list-tokens-with-malicious-pairs
       parameters:
       - name: chain_id
@@ -220,6 +220,8 @@ paths:
       x-source-doc: https://tokensniffer.readme.io/reference/list-tokens-with-malicious-pairs
       tags:
       - Scams
+    servers:
+    - url: https://tokensniffer.com/api/v2/pairs
 components:
   securitySchemes:
     sec0:

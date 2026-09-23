@@ -18,7 +18,7 @@ paths:
   /corrections:
     get:
       summary: List Corrected Tokens
-      description: Get the tokens which were un-flagged in the last 24 hours.  Available with the Enterprise plan.
+      description: Get the tokens which were un-flagged in the last 24 hours. Available with the Enterprise plan.
       operationId: list-corrected-tokens
       parameters:
       - name: chain_id

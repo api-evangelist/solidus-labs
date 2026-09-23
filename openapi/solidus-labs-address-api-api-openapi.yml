@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Address Address API API
+  title: Address API
   version: '2.0'
   description: Published by Solidus Labs as the TokenSniffer API. Assembled verbatim from the OpenAPI 3.1.0 fragments Solidus Labs publishes on each operation page of https://tokensniffer.readme.io/reference/ (llms.txt markdown rendering). No operation, parameter, schema or example was authored by API Evangelist.
   contact:
@@ -18,7 +18,7 @@ paths:
   /{address}:
     get:
       summary: Get Address
-      description: Get scam tokens for address.  Available with the Pro and Enterprise plans.
+      description: Get scam tokens for address. Available with the Pro and Enterprise plans.
       operationId: get-address-results
       parameters:
       - name: address

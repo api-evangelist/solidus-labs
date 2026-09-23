@@ -5,6 +5,8 @@ info:
   contact:
     name: TokenSniffer Support
     url: https://tokensniffer.com/contact
+  x-product: TokenSniffer
+  x-provider: Solidus Labs
   description: 'Operations tagged Latest across 2 of this provider''s published API definitions: solidus-labs-tokensniffer-pairs-openapi.yml, solidus-labs-tokensniffer-tokens-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://tokensniffer.com/api/v2/pairs
@@ -15,11 +17,9 @@ tags:
 - name: Latest
 paths:
   /latest:
-    servers:
-    - url: https://tokensniffer.com/api/v2/pairs
     get:
       summary: List Latest Pairs
-      description: Get the latest trading pairs created in the last 24 hours.  Available with the Enterprise plan.
+      description: Get the latest trading pairs created in the last 24 hours. Available with the Enterprise plan.
       operationId: getting-started-with-your-api
       parameters:
       - name: chain_id
@@ -129,6 +129,8 @@ paths:
       x-source-doc: https://tokensniffer.readme.io/reference/getting-started-with-your-api
       tags:
       - Latest
+    servers:
+    - url: https://tokensniffer.com/api/v2/pairs
 components:
   securitySchemes:
     sec0:
