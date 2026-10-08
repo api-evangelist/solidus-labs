@@ -55,3 +55,25 @@ free_trial:
   url: https://tokensniffer.com/contact
 refunds: Non-refundable; no refunds or credits for services already paid for.
 self_service_management: https://billing.stripe.com/p/login/bIY4hUajh7Kz0w0144 (Stripe billing portal)
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Sniffer Pack Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Enterprise Pack
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
