@@ -64,34 +64,148 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Solidus Labs is a crypto-native market-integrity and compliance technology company founded in 2018,
-headquartered in New York with offices in Tel Aviv and London. Its **HALO** platform is a unified
-compliance control hub spanning trade surveillance, transaction monitoring, stablecoin monitoring,
-token monitoring, execution quality, case management and agentic-AI workflows, used by regulated
-exchanges, broker-dealers, market makers, custodians, OTC desks, stablecoin issuers and regulators.
+Solidus Labs is a crypto-native market-integrity and compliance technology company founded in 2018 by former Goldman Sachs engineers, headquartered in New York with offices in Tel Aviv and London. Its HALO platform is a unified compliance control hub spanning eight modules — Trade Surveillance, Transaction Monitoring, Stablecoin Monitoring, Token Monitoring, Execution Quality, Case Management, Agentic-AI Workflows and Professional Services — used by regulated exchanges, broker-dealers, market makers, custodians, OTC desks, stablecoin issuers and regulators across digital assets, derivatives, equities and fixed income. The publicly documented developer surface is the TokenSniffer API, the programmatic face of Solidus Labs' Token Monitoring module: a key-authenticated REST API over smart-contract scam detection, the TokenSniffer "Smell Test" risk score, malicious token/pair/address feeds across 15+ chains, and a v3 webhook subscription API for real-time scam and rug-pull notifications. The HALO platform itself is delivered to contracted customers through regional dashboards and is not publicly documented.
 
-- Website: https://www.soliduslabs.com/
-- Developer surface: https://www.soliduslabs.com/tokensniffer/api
-- API reference: https://tokensniffer.readme.io/
+**Areas:** Company · Compliance · RegTech · Trade Surveillance · market-integrity · Transaction Monitoring · Digital Assets · Cryptocurrency · Blockchain · Token Security · Scam Detection · Smart Contracts
 
-## What is public
+## Solidus Labs on APIs.io
 
-The publicly documented developer surface is the **TokenSniffer API**, the programmatic face of the
-HALO Token Monitoring module — smart-contract scam detection, the TokenSniffer "Smell Test" 0-100
-risk score, malicious token / pair / deployer-address feeds across 15 chains, and a v3 webhook
-subscription API. The HALO platform itself is delivered to contracted customers through regional
-dashboards and is not publicly documented.
+Everything profiled for Solidus Labs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/solidus-labs/](https://apis.io/providers/solidus-labs/)** — or go straight to one of the APIs or properties below.
 
-| Artifact | What's here |
+### APIs (6)
+
+- [Solidus Labs Address API](https://apis.io/apis/solidus-labs/solidus-labs-address-api-api/) — The Address API API from Solidus Labs — 1 operation(s) for address api.
+- [Solidus Labs Corrections API](https://apis.io/apis/solidus-labs/solidus-labs-corrections-api/) — The Corrections API from Solidus Labs — 1 operation(s) for corrections.
+- [Solidus Labs Latest API](https://apis.io/apis/solidus-labs/solidus-labs-latest-api/) — The Latest API from Solidus Labs — 1 operation(s) for latest.
+- [Solidus Labs Scams API](https://apis.io/apis/solidus-labs/solidus-labs-scams-api/) — The Scams API from Solidus Labs — 2 operation(s) for scams.
+- [Solidus Labs Token API](https://apis.io/apis/solidus-labs/solidus-labs-token-api-api/) — The Token API API from Solidus Labs — 1 operation(s) for token api.
+- [Solidus Labs Webhooks API](https://apis.io/apis/solidus-labs/solidus-labs-webhooks-api-api/) — The Webhooks API API from Solidus Labs — 2 operation(s) for webhooks api.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Solidus Labs Tokensniffer Webhooks](https://apis.io/asyncapis/solidus-labs/solidus-labs-tokensniffer-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [tokensniffer](https://apis.io/servers/solidus-labs/tokensniffer/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [Address Address API API](https://apis.io/collections/solidus-labs/open-solidus-labs-address-api-api/)
+- [Chain Chain API API](https://apis.io/collections/solidus-labs/open-solidus-labs-chain-api-api/)
+- [Token Corrections API](https://apis.io/collections/solidus-labs/open-solidus-labs-corrections-api/)
+- [Solidus Labs Latest API](https://apis.io/collections/solidus-labs/open-solidus-labs-latest-api/)
+- [Solidus Labs Scams API](https://apis.io/collections/solidus-labs/open-solidus-labs-scams-api/)
+- [Token Token API API](https://apis.io/collections/solidus-labs/open-solidus-labs-token-api-api/)
+- [Webhooks Webhooks API API](https://apis.io/collections/solidus-labs/open-solidus-labs-webhooks-api-api/)
+
+#### Overlays (5)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Solidus Labs Tokensniffer Addresses Overlay](https://apis.io/overlays/solidus-labs/solidus-labs-tokensniffer-addresses-overlay/)
+- [Solidus Labs Tokensniffer Chains Overlay](https://apis.io/overlays/solidus-labs/solidus-labs-tokensniffer-chains-overlay/)
+- [Solidus Labs Tokensniffer Pairs Overlay](https://apis.io/overlays/solidus-labs/solidus-labs-tokensniffer-pairs-overlay/)
+- [Solidus Labs Tokensniffer Tokens Overlay](https://apis.io/overlays/solidus-labs/solidus-labs-tokensniffer-tokens-overlay/)
+- [Solidus Labs Tokensniffer Webhooks Overlay](https://apis.io/overlays/solidus-labs/solidus-labs-tokensniffer-webhooks-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Solidus Labs Authentication](https://apis.io/security/solidus-labs/solidus-labs-authentication/)
+- [Solidus Labs Domain Security](https://apis.io/security/solidus-labs/solidus-labs-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Solidus Labs Plans](https://apis.io/plans/solidus-labs/solidus-labs-plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Solidus Labs Rate Limits](https://apis.io/rate-limits/solidus-labs/solidus-labs-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.soliduslabs.com/)
+- [Documentation](https://tokensniffer.readme.io/)
+- [Getting started](https://tokensniffer.readme.io/reference/introduction)
+- [API reference](https://tokensniffer.readme.io/reference)
+- [Pricing](https://www.soliduslabs.com/tokensniffer/api)
+- [Sign up](https://www.soliduslabs.com/tokensniffer/api)
+- [Support](https://www.soliduslabs.com/contact)
+- [Blog](https://www.soliduslabs.com/blog)
+- [Compliance](https://www.soliduslabs.com/clients/digital-assets)
+- [Terms of service](https://www.soliduslabs.com/legal#terms-of-use)
+- [Privacy policy](https://www.soliduslabs.com/legal#privacy-policy)
+- [GitHub](https://github.com/SolidusLabsExternal)
+
+## API Evangelist rating
+
+**Kin Score 65.6** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| `openapi/` | 5 OpenAPI 3.1.0 documents, 15 operations — assembled verbatim from the per-operation OpenAPI blocks Solidus Labs publishes on `tokensniffer.readme.io` |
-| `skills/` | The provider's **own** Agent Skill (`SKILL.md` + 6 references + evals), harvested verbatim from `github.com/SolidusLabsExternal/tokensniffer-skills` |
-| `llms/` | Both published `llms.txt` files — `soliduslabs.com` and `tokensniffer.readme.io` |
-| `asyncapi/` | Webhook event catalog (no AsyncAPI document is published) |
-| `vocabulary/` | The exploit typology, chain registry and event-type vocabularies |
-| `packages/`, `cli/`, `components/` | npm widget library, the Python CLI (git-only, not on PyPI) |
-| `plans/`, `rate-limits/`, `conventions/`, `errors/`, `lifecycle/`, `changelog/` | Pricing tiers, the 5 req/s limit, auth and pagination semantics, the status-code table, versioning |
-| `security/`, `well-known/`, `conformance/` | Probe results — including what is **absent**: no security.txt, no status page, no trust center, no agent card |
+| Discoverability | 78.6 |
+| Contract quality | 62.1 |
+| Contract governance | 33.3 |
+| Operational transparency | 57.9 |
+| Developer ergonomics | 72.6 |
+| Access clarity | 73.7 |
 
-Nothing in this repository was authored on the provider's behalf. Where a probe missed, the miss is
-recorded with the HTTP status it actually returned.
+**Agent readiness 35.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/solidus-labs/](https://apis.io/providers/solidus-labs/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Solidus Labs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/solidus-labs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
